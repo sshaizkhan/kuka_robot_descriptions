@@ -6,7 +6,7 @@
   <description>KUKA description for Universal Robots</description>
   <maintainer email="sshaizkhan@gmail.com">Shahwaz Khan</maintainer>
   <author>Shahwaz Khan</author>
-  <license file="LICENSE">BSD-3-Clause</license>
+  <license file="LICENSE">Apache 2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
