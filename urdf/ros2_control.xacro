@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find kuka_robot_descriptions)/urdf/inc/kuka_joint_control.xacro" />
+
+  <xacro:macro name="kuka_ros2_control"
+    params="
+    name
+    tf_prefix
+    initial_positions:=${dict(joint_1=0.0,joint_2=-1.57,joint_3=0.0,joint_4=-1.57,joint_5=0.0,joint_6=0.0)}
+    client_ip
+    client_port
+    use_fake_hardware
+    ">
+
+    <ros2_control name="${name}" type="system">
+      <hardware>
+        <xacro:if value="${use_fake_hardware}">
+          <plugin>mock_components/GenericSystem</plugin>
+          <param name="mock_sensor_commands">false</param>
+          <param name="state_following_offset">0.0</param>
+        </xacro:if>
+        <xacro:unless value="${use_fake_hardware}">
+          <plugin>kuka_kss_rsi_driver::KukaRSIHardwareInterface</plugin>
+          <param name="client_ip">${client_ip}</param>
+          <param name="client_port">${client_port}</param>
+        </xacro:unless>
+      </hardware>
+      <xacro:kuka_joint_control_description
+        tf_prefix="${tf_prefix}"
+        initial_positions="${initial_positions}"
+      />
+    </ros2_control>
+  </xacro:macro>
+
+
+</robot>

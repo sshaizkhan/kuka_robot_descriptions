@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro" name="$(arg name)">
+  <!-- robot name parameter -->
+  <xacro:arg name="name" default="kuka" />
+  <!-- import main macro -->
+  <xacro:include filename="$(find kuka_robot_descriptions)/urdf/kuka_macro.xacro" />
+
+  <!-- Possible type are:
+    1.kr6_700_sixx
+    2.kr6_r900_sixx
+    3.kr10_r1100_2
+    4.kr16_r2010_2
+    5.kr210_r2700_2
+    6.kr210_r3100_2
+    7.kr560_r3100_2
+    8.lbr_iisy3_r760
+    9.lbr_iisy11_r1300
+    10.lbr_iisy11_r930
+    11.lbr_iiwa14_r820
+  -->
+  <xacro:arg name="kuka_type" default="kr6x" />
+
+  <!-- parameters for the robot -->
+  <xacro:arg name="tf_prefix" default="" />
+  <xacro:arg name="joint_limit_params"
+    default="$(find kuka_robot_descriptions)/config/$(arg kuka_type)/joint_limits.yaml" />
+  <xacro:arg name="kinematics_params"
+    default="$(find kuka_robot_descriptions)/config/$(arg kuka_type)/default_kinematics.yaml" />
+  <xacro:arg name="physical_params"
+    default="$(find kuka_robot_descriptions)/config/$(arg kuka_type)/physical_parameters.yaml" />
+  <xacro:arg name="visual_params"
+    default="$(find kuka_robot_descriptions)/config/$(arg kuka_type)/visual_parameters.yaml" />
+  <xacro:arg name="client_ip" default="0.0.0.0" />
+  <xacro:arg name="client_port" default="59152" />
+  <xacro:arg name="use_fake_hardware" default="true" />
+
+  <!--When
+  using gazebo simulations absolute paths are necessary.-->
+  <xacro:arg name="force_abs_paths" default="false" />
+
+  <!-- create link fixed to the "world" -->
+  <link name="world" />
+
+  <xacro:kuka_robot
+    name="$(arg name)"
+    tf_prefix="$(arg tf_prefix)"
+    parent="world"
+    use_fake_hardware="$(arg use_fake_hardware)"
+    joint_limits_parameters_file="$(arg joint_limit_params)"
+    kinematics_parameters_file="$(arg kinematics_params)"
+    physical_parameters_file="$(arg physical_params)"
+    visual_parameters_file="$(arg visual_params)"
+    client_ip="$(arg client_ip)"
+    client_port="$(arg client_port)"
+    force_abs_paths="$(arg force_abs_paths)"
+  >
+    <origin xyz="0 0 0" rpy="0 0 0" />          <!-- position robot in the world -->
+  </xacro:kuka_robot>
+</robot>

@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+  <!--
+    NOTE the macro defined in this file is NOT part of the public API of this
+          package. Users CANNOT rely on this file being available, or stored in
+          this location. Nor can they rely on the existence of the macro.
+  -->
+
+  <xacro:macro name="kuka_arm_transmission" params="tf_prefix">
+
+    <transmission name="${tf_prefix}joint_1_trans">
+      <actuator name="${tf_prefix}joint_1_motor">
+        <hardwareInterface>EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1.0</mechanicalReduction>
+      </actuator>
+      <joint name="${tf_prefix}joint_1">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <type>transmission_interface/SimpleTransmission</type>
+    </transmission>
+
+    <transmission name="${tf_prefix}joint_2_trans">
+      <actuator name="${tf_prefix}joint_2_motor">
+        <hardwareInterface>EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1.0</mechanicalReduction>
+      </actuator>
+      <joint name="${tf_prefix}joint_2">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <type>transmission_interface/SimpleTransmission</type>
+    </transmission>
+
+    <transmission name="${tf_prefix}joint_3_trans">
+      <actuator name="${tf_prefix}joint_3_motor">
+        <hardwareInterface>EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1.0</mechanicalReduction>
+      </actuator>
+      <joint name="${tf_prefix}joint_3">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <type>transmission_interface/SimpleTransmission</type>
+    </transmission>
+
+    <transmission name="${tf_prefix}joint_4_trans">
+      <actuator name="${tf_prefix}joint_4_motor">
+        <hardwareInterface>EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1.0</mechanicalReduction>
+      </actuator>
+      <joint name="${tf_prefix}joint_4">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <type>transmission_interface/SimpleTransmission</type>
+    </transmission>
+
+    <transmission name="${tf_prefix}joint_5_trans">
+      <actuator name="${tf_prefix}joint_5_motor">
+        <hardwareInterface>EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1.0</mechanicalReduction>
+      </actuator>
+      <joint name="${tf_prefix}joint_5">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <type>transmission_interface/SimpleTransmission</type>
+    </transmission>
+
+    <transmission name="${tf_prefix}joint_6_trans">
+      <actuator name="${tf_prefix}joint_6_motor">
+        <hardwareInterface>EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1.0</mechanicalReduction>
+      </actuator>
+      <joint name="${tf_prefix}joint_6">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <type>transmission_interface/SimpleTransmission</type>
+    </transmission>
+
+  </xacro:macro>
+</robot>
