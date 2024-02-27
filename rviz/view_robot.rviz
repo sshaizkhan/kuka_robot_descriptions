@@ -5,17 +5,6 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /RobotModel1/Description Topic1
-        - /TF1
-        - /TF1/Tree1
-        - /TF1/Tree1/world1
-        - /TF1/Tree1/world1/base_link1
-        - /TF1/Tree1/world1/base_link1/link_11
-        - /TF1/Tree1/world1/base_link1/link_11/link_21
-        - /TF1/Tree1/world1/base_link1/link_11/link_21/link_31
-        - /TF1/Tree1/world1/base_link1/link_11/link_21/link_31/link_41
-        - /TF1/Tree1/world1/base_link1/link_11/link_21/link_31/link_41/link_51
-        - /TF1/Tree1/world1/base_link1/link_11/link_21/link_31/link_41/link_51/link_61
-        - /TF1/Tree1/world1/base_link1/link_11/link_21/link_31/link_41/link_51/link_61/flange1
       Splitter Ratio: 0.8388888835906982
     Tree Height: 904
   - Class: rviz_common/Selection
@@ -130,53 +119,19 @@ Visualization Manager:
       Value: true
       Visual Enabled: true
     - Class: rviz_default_plugins/TF
-      Enabled: true
+      Enabled: false
       Frame Timeout: 15
       Frames:
         All Enabled: true
-        base:
-          Value: true
-        base_link:
-          Value: true
-        flange:
-          Value: true
-        link_1:
-          Value: true
-        link_2:
-          Value: true
-        link_3:
-          Value: true
-        link_4:
-          Value: true
-        link_5:
-          Value: true
-        link_6:
-          Value: true
-        tool0:
-          Value: true
-        world:
-          Value: true
       Marker Scale: 1
       Name: TF
       Show Arrows: true
       Show Axes: true
       Show Names: false
       Tree:
-        world:
-          base_link:
-            base:
-              {}
-            link_1:
-              link_2:
-                link_3:
-                  link_4:
-                    link_5:
-                      link_6:
-                        flange:
-                          tool0:
-                            {}
+        {}
       Update Interval: 0
-      Value: true
+      Value: false
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
