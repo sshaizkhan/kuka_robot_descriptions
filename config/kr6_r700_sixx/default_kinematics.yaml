@@ -14,7 +14,7 @@ kinematics:
     pitch: 0.0
     yaw: 0.0
   link_3:
-    x: 0.0315
+    x: 0.315
     y: 0.0
     z: 0.0
     roll: 0.0
