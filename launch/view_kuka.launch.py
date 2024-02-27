@@ -26,7 +26,8 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 #
-# Author: Denis Stogl
+# Author: Shahwaz Khan
+# Modified from the original file by: Denis Stogl
 
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
@@ -34,7 +35,6 @@ from launch.substitutions import Command, FindExecutable, LaunchConfiguration, P
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
 from launch_ros.parameter_descriptions import ParameterValue
-
 
 
 def generate_launch_description():
@@ -84,7 +84,8 @@ def generate_launch_description():
         [
             PathJoinSubstitution([FindExecutable(name="xacro")]),
             " ",
-            PathJoinSubstitution([FindPackageShare(description_package), "urdf", description_file]),
+            PathJoinSubstitution(
+                [FindPackageShare(description_package), "urdf", description_file]),
             " ",
             "name:=",
             "kuka",
@@ -96,8 +97,8 @@ def generate_launch_description():
             tf_prefix,
         ]
     )
-    robot_description = {"robot_description": ParameterValue(robot_description_content, value_type=str)}
-
+    robot_description = {"robot_description": ParameterValue(
+        robot_description_content, value_type=str)}
 
     rviz_config_file = PathJoinSubstitution(
         [FindPackageShare(description_package), "rviz", "view_robot.rviz"]
