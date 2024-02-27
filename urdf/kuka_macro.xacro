@@ -63,8 +63,7 @@
 
 
     <!-- Links -main serial chain -->
-    <link name="${tf_prefix}base_link" />
-    <link name="${tf_prefix}base_link_inertia">
+    <link name="${tf_prefix}base_link">
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
@@ -204,25 +203,17 @@
       </xacro:cylinder_inertial>
     </link>
 
-
     <!-- base_joint fixes base_link to the environment -->
-    <joint name="${tf_prefix}base_joint" type="fixed">
+    <joint name="${tf_prefix}${parent}-base_link" type="fixed">
       <parent link="${parent}" />
       <child link="${tf_prefix}base_link" />
       <xacro:insert_block name="origin" />
     </joint>
 
-    <!-- ROS base_link to KUKA $ROBROOT coordinate system transform -->
-    <joint name="${tf_prefix}base_link-base_link_inertia" type="fixed">
-      <parent link="${tf_prefix}base_link" />
-      <child link="${tf_prefix}base_link_inertia" />
-      <origin xyz="0 0 0" rpy="0 0 0" />
-    </joint>
-
     <!-- joints - main serial chain -->
     <!-- Joint-1 -->
     <joint name="${tf_prefix}joint_1" type="revolute">
-      <parent link="${tf_prefix}base_link_inertia" />
+      <parent link="${tf_prefix}base_link" />
       <child link="${tf_prefix}link_1" />
       <origin xyz="${link1_x} ${link1_y} ${link1_z}" rpy="${link1_roll} ${link1_pitch} ${link1_yaw}" />
       <axis xyz="0 0 -1" />
@@ -258,7 +249,7 @@
       <parent link="${tf_prefix}link_3" />
       <child link="${tf_prefix}link_4" />
       <origin xyz="${link4_x} ${link4_y} ${link4_z}" rpy="${link4_roll} ${link4_pitch} ${link4_yaw}" />
-      <axis xyz="0 1 0" />
+      <axis xyz="-1 0 0" />
       <limit lower="${joint_4_lower_limit}" upper="${joint_4_upper_limit}"
         effort="${joint_4_effort_limit}"
         velocity="${joint_4_velocity_limit}" />
@@ -280,39 +271,27 @@
       <parent link="${tf_prefix}link_5" />
       <child link="${tf_prefix}link_6" />
       <origin xyz="${link6_x} ${link6_y} ${link6_z}" rpy="${link6_roll} ${link6_pitch} ${link6_yaw}" />
-      <axis xyz="0 1 0" />
+      <axis xyz="-1 0 0" />
       <limit lower="${joint_6_lower_limit}" upper="${joint_6_upper_limit}"
         effort="${joint_6_effort_limit}"
         velocity="${joint_6_velocity_limit}" />
     </joint>
 
-    <link name="${tf_prefix}ft_frame"/>
-    <joint name="${tf_prefix}link_6-ft_frame" type="fixed">
-      <parent link="${tf_prefix}link_6"/>
-      <child link="${tf_prefix}ft_frame"/>
-      <origin xyz="0 0 0" rpy="${pi} 0 0"/>
-    </joint>
-
-    <link name="${tf_prefix}base"/>
-    <joint name="${tf_prefix}base_link-base_fixed_joint" type="fixed">
-      <!-- Note the rotation over Z of pi radians - as base_link is REP-103
-           aligned (i.e., has X+ forward, Y+ left and Z+ up), this is needed
-           to correctly align 'base' with the 'Base' coordinate system of
-           the UR controller.
-      -->
-      <origin xyz="0 0 0" rpy="0 0 ${pi}"/>
-      <parent link="${tf_prefix}base_link"/>
-      <child link="${tf_prefix}base"/>
+    <!-- ROS base_link to KUKA $ROBROOT coordinate system transform -->
+    <link name="${tf_prefix}base" />
+    <joint name="${tf_prefix}base_link-base" type="fixed">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <parent link="${tf_prefix}base_link" />
+      <child link="${tf_prefix}base" />
     </joint>
 
     <!-- ROS-Industrial 'flange' frame - attachment point for EEF models -->
     <link name="${tf_prefix}flange" />
-    <joint name="${tf_prefix}flange-joint_6" type="fixed">
+    <joint name="${tf_prefix}joint_6-flange" type="fixed">
       <parent link="${tf_prefix}link_6" />
       <child link="${tf_prefix}flange" />
       <origin xyz="0 0 0" rpy="0 0 0 " />
     </joint>
-
 
     <!-- This frame corresponds to the $TOOL coordinate system in KUKA KRC controllers -->
     <link name="${tf_prefix}tool0" />
