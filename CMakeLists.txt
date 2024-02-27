@@ -5,7 +5,7 @@ project(kuka_robot_descriptions)
 find_package(ament_cmake REQUIRED)
 
 install(
-  DIRECTORY config launch meshes rviz urdf test
+  DIRECTORY config launch meshes rviz urdf #test
   DESTINATION share/${PROJECT_NAME}
 )
 ament_export_dependencies(${THIS_PACKAGE_INCLUDE_DEPENDS})
