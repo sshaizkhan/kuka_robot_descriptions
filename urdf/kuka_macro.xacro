@@ -26,8 +26,8 @@
 
   <xacro:include filename="$(find kuka_robot_descriptions)/urdf/inc/kuka_common.xacro" />
   <xacro:include filename="$(find kuka_robot_descriptions)/urdf/inc/common_materials.xacro" />
-  <xacro:include filename="$(find kuka_robot_descriptions)/urdf/inc/kuka_transmission.xacro" />
-  <xacro:include filename="$(find kuka_robot_descriptions)/urdf/ros2_control.xacro" />
+  <!-- <xacro:include filename="$(find kuka_robot_descriptions)/urdf/inc/kuka_transmission.xacro" />
+  <xacro:include filename="$(find kuka_robot_descriptions)/urdf/ros2_control.xacro" /> -->
 
   <xacro:macro name="kuka_robot"
     params="
@@ -45,13 +45,13 @@
     force_abs_paths:=false
     ">
 
-    <xacro:kuka_ros2_control
+    <!-- <xacro:kuka_ros2_control
       name="${name}"
       tf_prefix="${tf_prefix}"
       client_ip="${client_ip}"
       client_port="${client_port}"
       use_fake_hardware="${use_fake_hardware}"
-    />
+    /> -->
 
     <!-- Load configuration data from the provided .yaml files -->
     <xacro:read_model_data
