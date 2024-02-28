@@ -39,6 +39,19 @@
     <mesh filename="${mesh}"/>
   </xacro:macro>
 
+  <xacro:macro name="get_material_values" params="name:=^ type:=^">
+    <xacro:get_visual_params />
+    <xacro:property name="material" value="${visual_params['material']['name']}" scope="parent"/>
+    <xacro:property name="color" value="${visual_params['material']['color']}" scope="parent"/>
+  </xacro:macro>
+
+  <xacro:macro name="get_material" params="name type">
+    <xacro:get_material_values/>
+    <material name="${material}">
+      <color rgba="${color}"/>
+    </material>
+  </xacro:macro>
+
   <xacro:macro name="read_model_data" params="joint_limits_parameters_file kinematics_parameters_file physical_parameters_file visual_parameters_file force_abs_paths">
 
     <xacro:property name="force_abs_paths" value="${force_abs_paths}" scope="parent"/>
@@ -184,10 +197,3 @@
 
   </xacro:macro>
 </robot>
-
-
-
-
-
-
-
