@@ -6,7 +6,7 @@ mesh_files:
         path: meshes/kr6_r900_sixx/visual/base_link.dae
       material:
         name: "KukaPedastal"
-        color: "${129/255} ${120/255} ${99/255} 1.0"
+        color: "0.5 0.47 0.38 1.0"
     collision:
       mesh:
         package: kuka_robot_descriptions
@@ -19,7 +19,7 @@ mesh_files:
         path: meshes/kr6_r900_sixx/visual/link_1.dae
       material:
         name: "KukaOrange"
-        color: "${246/255} ${120/255} ${40/255} 1.0"
+        color: "0.96 0.47 0.16 1.0"
     collision:
       mesh:
         package: kuka_robot_descriptions
@@ -32,7 +32,7 @@ mesh_files:
         path: meshes/kr6_r900_sixx/visual/link_2.dae
       material:
         name: "KukaOrange"
-        color: "${246/255} ${120/255} ${40/255} 1.0"
+        color: "0.96 0.47 0.16 1.0"
     collision:
       mesh:
         package: kuka_robot_descriptions
@@ -45,7 +45,7 @@ mesh_files:
         path: meshes/kr6_r900_sixx/visual/link_3.dae
       material:
         name: "KukaOrange"
-        color: "${246/255} ${120/255} ${40/255} 1.0"
+        color: "0.96 0.47 0.16 1.0"
     collision:
       mesh:
         package: kuka_robot_descriptions
@@ -58,7 +58,7 @@ mesh_files:
         path: meshes/kr6_r900_sixx/visual/link_4.dae
       material:
         name: "KukaOrange"
-        color: "${246/255} ${120/255} ${40/255} 1.0"
+        color: "0.96 0.47 0.16 1.0"
     collision:
       mesh:
         package: kuka_robot_descriptions
@@ -71,7 +71,7 @@ mesh_files:
         path: meshes/kr6_r900_sixx/visual/link_5.dae
       material:
         name: "KukaOrange"
-        color: "${246/255} ${120/255} ${40/255} 1.0"
+        color: "0.96 0.47 0.16 1.0"
     collision:
       mesh:
         package: kuka_robot_descriptions
@@ -84,7 +84,7 @@ mesh_files:
         path: meshes/kr6_r900_sixx/visual/link_6.dae
       material:
         name: "KukaOrange"
-        color: "${246/255} ${120/255} ${40/255} 1.0"
+        color: "0.96 0.47 0.16 1.0"
     collision:
       mesh:
         package: kuka_robot_descriptions
