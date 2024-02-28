@@ -69,7 +69,7 @@
         <geometry>
           <xacro:get_mesh name="base_link" type="visual" />
         </geometry>
-        <xacro:material_kuka_pedestal />
+        <xacro:get_material name="base_link" type="visual" />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
@@ -90,7 +90,7 @@
         <geometry>
           <xacro:get_mesh name="link_1" type="visual" />
         </geometry>
-        <xacro:material_kuka_orange />
+        <xacro:get_material name="link_1" type="visual" />
       </visual>
       <collision>
         <geometry>
@@ -110,7 +110,7 @@
         <geometry>
           <xacro:get_mesh name="link_2" type="visual" />
         </geometry>
-        <xacro:material_kuka_orange />
+        <xacro:get_material name="link_2" type="visual" />
       </visual>
       <collision>
         <geometry>
@@ -130,7 +130,7 @@
         <geometry>
           <xacro:get_mesh name="link_3" type="visual" />
         </geometry>
-        <xacro:material_kuka_orange />
+        <xacro:get_material name="link_3" type="visual" />
       </visual>
       <collision>
         <geometry>
@@ -150,7 +150,7 @@
         <geometry>
           <xacro:get_mesh name="link_4" type="visual" />
         </geometry>
-        <xacro:material_kuka_orange />
+        <xacro:get_material name="link_4" type="visual" />
       </visual>
       <collision>
         <geometry>
@@ -170,7 +170,7 @@
         <geometry>
           <xacro:get_mesh name="link_5" type="visual" />
         </geometry>
-        <xacro:material_kuka_orange />
+        <xacro:get_material name="link_5" type="visual" />
       </visual>
       <collision>
         <geometry>
@@ -190,7 +190,7 @@
         <geometry>
           <xacro:get_mesh name="link_6" type="visual" />
         </geometry>
-        <xacro:material_kuka_orange />
+        <xacro:get_material name="link_6" type="visual" />
       </visual>
       <collision>
         <geometry>
