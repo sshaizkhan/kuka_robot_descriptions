@@ -1,0 +1,31 @@
+inertia_parameters:
+  base_link_mass: 0.0
+  link_1_mass: 0.0
+  link_2_mass: 0.0
+  link_3_mass: 0.0
+  link_4_mass: 0.0
+  link_5_mass: 0.0
+  link_6_mass: 0.0
+
+  links:
+    base_link:
+      radius: 0.0
+      length: 0.0
+    link_1:
+      radius: 0.0
+      length: 0.0
+    link_2:
+      radius: 0.0
+      length: 0.0
+    link_3:
+      radius: 0.0
+      length: 0.0
+    link_4:
+      radius: 0.0
+      length: 0.0
+    link_5:
+      radius: 0.0
+      length: 0.0
+    link_6:
+      radius: 0.0
+      length: 0.0
