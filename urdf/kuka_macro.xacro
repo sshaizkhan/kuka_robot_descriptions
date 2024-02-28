@@ -25,7 +25,6 @@
    -->
 
   <xacro:include filename="$(find kuka_robot_descriptions)/urdf/inc/kuka_common.xacro" />
-  <xacro:include filename="$(find kuka_robot_descriptions)/urdf/inc/common_materials.xacro" />
   <xacro:include filename="$(find kuka_robot_descriptions)/urdf/inc/kuka_transmission.xacro" />
   <xacro:include filename="$(find kuka_robot_descriptions)/urdf/ros2_control.xacro" />
 
