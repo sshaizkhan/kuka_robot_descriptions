@@ -76,10 +76,10 @@
           <xacro:get_mesh name="base_link" type="collision" />
         </geometry>
       </collision>
-      <xacro:cylinder_inertial radius="${base_inertia_radius}" length="${base_inertia_length}"
-        mass="${base_link_mass}">
+      <xacro:inertial_block mass="${base_link_mass}" ixx="${base_ixx}" iyy="${base_iyy}"
+        izz="${base_izz}">
         <origin xyz="0 0 0" rpy="0 0 0" />
-      </xacro:cylinder_inertial>
+      </xacro:inertial_block>
     </link>
 
     <!-- Link-1 -->
@@ -96,10 +96,10 @@
           <xacro:get_mesh name="link_1" type="collision" />
         </geometry>
       </collision>
-      <xacro:cylinder_inertial radius="${link_1_inertia_radius}" length="${link_1_inertia_length}"
-        mass="${link_1_mass}">
+      <xacro:inertial_block mass="${link_1_mass}" ixx="${link_1_ixx}" iyy="${link_1_iyy}"
+        izz="${link_1_izz}">
         <origin xyz="0 0 0" rpy="0 0 0" />
-      </xacro:cylinder_inertial>
+      </xacro:inertial_block>
     </link>
 
     <!-- Link-2 -->
@@ -116,10 +116,10 @@
           <xacro:get_mesh name="link_2" type="collision" />
         </geometry>
       </collision>
-      <xacro:cylinder_inertial radius="${link_2_inertia_radius}" length="${link_2_inertia_length}"
-        mass="${link_2_mass}">
+      <xacro:inertial_block mass="${link_2_mass}" ixx="${link_2_ixx}" iyy="${link_2_iyy}"
+        izz="${link_2_izz}">
         <origin xyz="0 0 0" rpy="0 0 0" />
-      </xacro:cylinder_inertial>
+      </xacro:inertial_block>
     </link>
 
     <!-- Link-3 -->
@@ -136,10 +136,10 @@
           <xacro:get_mesh name="link_3" type="collision" />
         </geometry>
       </collision>
-      <xacro:cylinder_inertial radius="${link_3_inertia_radius}" length="${link_3_inertia_length}"
-        mass="${link_3_mass}">
+      <xacro:inertial_block mass="${link_3_mass}" ixx="${link_3_ixx}" iyy="${link_3_iyy}"
+        izz="${link_3_izz}">
         <origin xyz="0 0 0" rpy="0 0 0" />
-      </xacro:cylinder_inertial>
+      </xacro:inertial_block>
     </link>
 
     <!-- Link-4 -->
@@ -156,10 +156,10 @@
           <xacro:get_mesh name="link_4" type="collision" />
         </geometry>
       </collision>
-      <xacro:cylinder_inertial radius="${link_4_inertia_radius}" length="${link_4_inertia_length}"
-        mass="${link_4_mass}">
+      <xacro:inertial_block mass="${link_4_mass}" ixx="${link_4_ixx}" iyy="${link_4_iyy}"
+        izz="${link_4_izz}">
         <origin xyz="0 0 0" rpy="0 0 0" />
-      </xacro:cylinder_inertial>
+      </xacro:inertial_block>
     </link>
 
     <!-- Link-5 -->
@@ -176,10 +176,10 @@
           <xacro:get_mesh name="link_5" type="collision" />
         </geometry>
       </collision>
-      <xacro:cylinder_inertial radius="${link_5_inertia_radius}" length="${link_5_inertia_length}"
-        mass="${link_5_mass}">
+      <xacro:inertial_block mass="${link_5_mass}" ixx="${link_5_ixx}" iyy="${link_5_iyy}"
+        izz="${link_5_izz}">
         <origin xyz="0 0 0" rpy="0 0 0" />
-      </xacro:cylinder_inertial>
+      </xacro:inertial_block>
     </link>
 
     <!-- Link-6 -->
@@ -196,10 +196,10 @@
           <xacro:get_mesh name="link_6" type="collision" />
         </geometry>
       </collision>
-      <xacro:cylinder_inertial radius="${link_6_inertia_radius}" length="${link_6_inertia_length}"
-        mass="${link_6_mass}">
+      <xacro:inertial_block mass="${link_6_mass}" ixx="${link_6_ixx}" iyy="${link_6_iyy}"
+        izz="${link_6_izz}">
         <origin xyz="0 0 0" rpy="0 0 0" />
-      </xacro:cylinder_inertial>
+      </xacro:inertial_block>
     </link>
 
     <!-- base_joint fixes base_link to the environment -->
