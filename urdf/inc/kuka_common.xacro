@@ -209,6 +209,22 @@
     <xacro:property name="link6_yaw" value="${sec_kinematics['link_6']['yaw']}" scope="parent" />
     <xacro:property name="link6_axis" value="${sec_kinematics['link_6']['axis']}" scope="parent" />
 
+    <!-- Flange -->
+    <xacro:property name="flange_x" value="${sec_kinematics['flange']['x']}" scope="parent" />
+    <xacro:property name="flange_y" value="${sec_kinematics['flange']['y']}" scope="parent" />
+    <xacro:property name="flange_z" value="${sec_kinematics['flange']['z']}" scope="parent" />
+    <xacro:property name="flange_roll" value="${sec_kinematics['flange']['roll']}" scope="parent" />
+    <xacro:property name="flange_pitch" value="${sec_kinematics['flange']['pitch']}" scope="parent" />
+    <xacro:property name="flange_yaw" value="${sec_kinematics['flange']['yaw']}" scope="parent" />
+
+    <!-- Tool0 -->
+    <xacro:property name="tool0_x" value="${sec_kinematics['tool0']['x']}" scope="parent" />
+    <xacro:property name="tool0_y" value="${sec_kinematics['tool0']['y']}" scope="parent" />
+    <xacro:property name="tool0_z" value="${sec_kinematics['tool0']['z']}" scope="parent" />
+    <xacro:property name="tool0_roll" value="${sec_kinematics['tool0']['roll']}" scope="parent" />
+    <xacro:property name="tool0_pitch" value="${sec_kinematics['tool0']['pitch']}" scope="parent" />
+    <xacro:property name="tool0_yaw" value="${sec_kinematics['tool0']['yaw']}" scope="parent" />
+
     <!-- Inertia Parameters -->
     <!-- mass -->
     <xacro:property name="base_link_mass" value="${sec_inertia_parameters['base_link_mass']}"

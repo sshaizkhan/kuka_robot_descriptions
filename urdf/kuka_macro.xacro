@@ -289,7 +289,7 @@
     <joint name="${tf_prefix}joint_6-flange" type="fixed">
       <parent link="${tf_prefix}link_6" />
       <child link="${tf_prefix}flange" />
-      <origin xyz="0 0 0" rpy="0 0 0 " />
+      <origin xyz="0 0 ${flange_z}" rpy="0 ${flange_pitch} 0 " />
     </joint>
 
     <!-- This frame corresponds to the $TOOL coordinate system in KUKA KRC controllers -->
@@ -297,7 +297,7 @@
     <joint name="${tf_prefix}flange-tool0" type="fixed">
       <parent link="${tf_prefix}flange" />
       <child link="${tf_prefix}tool0" />
-      <origin xyz="0 0 0" rpy="0 ${radians(90)} 0" />
+      <origin xyz="0 0 0" rpy="0 ${tool0_pitch} 0" />
     </joint>
 
   </xacro:macro>
