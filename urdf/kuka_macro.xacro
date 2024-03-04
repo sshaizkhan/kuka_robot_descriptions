@@ -76,10 +76,10 @@
           <xacro:get_mesh name="base_link" type="collision" />
         </geometry>
       </collision>
-      <xacro:cylinder_inertial radius="${base_inertia_radius}" length="${base_inertia_length}"
-        mass="${base_link_mass}">
+      <xacro:inertial_block mass="${base_link_mass}" ixx="${base_ixx}" iyy="${base_iyy}"
+        izz="${base_izz}">
         <origin xyz="0 0 0" rpy="0 0 0" />
-      </xacro:cylinder_inertial>
+      </xacro:inertial_block>
     </link>
 
     <!-- Link-1 -->
@@ -96,10 +96,10 @@
           <xacro:get_mesh name="link_1" type="collision" />
         </geometry>
       </collision>
-      <xacro:cylinder_inertial radius="${link_1_inertia_radius}" length="${link_1_inertia_length}"
-        mass="${link_1_mass}">
+      <xacro:inertial_block mass="${link_1_mass}" ixx="${link_1_ixx}" iyy="${link_1_iyy}"
+        izz="${link_1_izz}">
         <origin xyz="0 0 0" rpy="0 0 0" />
-      </xacro:cylinder_inertial>
+      </xacro:inertial_block>
     </link>
 
     <!-- Link-2 -->
@@ -116,10 +116,10 @@
           <xacro:get_mesh name="link_2" type="collision" />
         </geometry>
       </collision>
-      <xacro:cylinder_inertial radius="${link_2_inertia_radius}" length="${link_2_inertia_length}"
-        mass="${link_2_mass}">
+      <xacro:inertial_block mass="${link_2_mass}" ixx="${link_2_ixx}" iyy="${link_2_iyy}"
+        izz="${link_2_izz}">
         <origin xyz="0 0 0" rpy="0 0 0" />
-      </xacro:cylinder_inertial>
+      </xacro:inertial_block>
     </link>
 
     <!-- Link-3 -->
@@ -136,10 +136,10 @@
           <xacro:get_mesh name="link_3" type="collision" />
         </geometry>
       </collision>
-      <xacro:cylinder_inertial radius="${link_3_inertia_radius}" length="${link_3_inertia_length}"
-        mass="${link_3_mass}">
+      <xacro:inertial_block mass="${link_3_mass}" ixx="${link_3_ixx}" iyy="${link_3_iyy}"
+        izz="${link_3_izz}">
         <origin xyz="0 0 0" rpy="0 0 0" />
-      </xacro:cylinder_inertial>
+      </xacro:inertial_block>
     </link>
 
     <!-- Link-4 -->
@@ -156,10 +156,10 @@
           <xacro:get_mesh name="link_4" type="collision" />
         </geometry>
       </collision>
-      <xacro:cylinder_inertial radius="${link_4_inertia_radius}" length="${link_4_inertia_length}"
-        mass="${link_4_mass}">
+      <xacro:inertial_block mass="${link_4_mass}" ixx="${link_4_ixx}" iyy="${link_4_iyy}"
+        izz="${link_4_izz}">
         <origin xyz="0 0 0" rpy="0 0 0" />
-      </xacro:cylinder_inertial>
+      </xacro:inertial_block>
     </link>
 
     <!-- Link-5 -->
@@ -176,10 +176,10 @@
           <xacro:get_mesh name="link_5" type="collision" />
         </geometry>
       </collision>
-      <xacro:cylinder_inertial radius="${link_5_inertia_radius}" length="${link_5_inertia_length}"
-        mass="${link_5_mass}">
+      <xacro:inertial_block mass="${link_5_mass}" ixx="${link_5_ixx}" iyy="${link_5_iyy}"
+        izz="${link_5_izz}">
         <origin xyz="0 0 0" rpy="0 0 0" />
-      </xacro:cylinder_inertial>
+      </xacro:inertial_block>
     </link>
 
     <!-- Link-6 -->
@@ -196,10 +196,10 @@
           <xacro:get_mesh name="link_6" type="collision" />
         </geometry>
       </collision>
-      <xacro:cylinder_inertial radius="${link_6_inertia_radius}" length="${link_6_inertia_length}"
-        mass="${link_6_mass}">
+      <xacro:inertial_block mass="${link_6_mass}" ixx="${link_6_ixx}" iyy="${link_6_iyy}"
+        izz="${link_6_izz}">
         <origin xyz="0 0 0" rpy="0 0 0" />
-      </xacro:cylinder_inertial>
+      </xacro:inertial_block>
     </link>
 
     <!-- base_joint fixes base_link to the environment -->
@@ -215,7 +215,7 @@
       <parent link="${tf_prefix}base_link" />
       <child link="${tf_prefix}link_1" />
       <origin xyz="${link1_x} ${link1_y} ${link1_z}" rpy="${link1_roll} ${link1_pitch} ${link1_yaw}" />
-      <axis xyz="0 0 -1" />
+      <axis xyz="${link1_axis}" />
       <limit lower="${joint_1_lower_limit}" upper="${joint_1_upper_limit}"
         effort="${joint_1_effort_limit}"
         velocity="${joint_1_velocity_limit}" />
@@ -226,7 +226,7 @@
       <parent link="${tf_prefix}link_1" />
       <child link="${tf_prefix}link_2" />
       <origin xyz="${link2_x} ${link2_y} ${link2_z}" rpy="${link2_roll} ${link2_pitch} ${link2_yaw}" />
-      <axis xyz="0 1 0" />
+      <axis xyz="${link2_axis}" />
       <limit lower="${joint_2_lower_limit}" upper="${joint_2_upper_limit}"
         effort="${joint_2_effort_limit}"
         velocity="${joint_2_velocity_limit}" />
@@ -237,7 +237,7 @@
       <parent link="${tf_prefix}link_2" />
       <child link="${tf_prefix}link_3" />
       <origin xyz="${link3_x} ${link3_y} ${link3_z}" rpy="${link3_roll} ${link3_pitch} ${link3_yaw}" />
-      <axis xyz="0 1 0" />
+      <axis xyz="${link3_axis}" />
       <limit lower="${joint_3_lower_limit}" upper="${joint_3_upper_limit}"
         effort="${joint_3_effort_limit}"
         velocity="${joint_3_velocity_limit}" />
@@ -248,7 +248,7 @@
       <parent link="${tf_prefix}link_3" />
       <child link="${tf_prefix}link_4" />
       <origin xyz="${link4_x} ${link4_y} ${link4_z}" rpy="${link4_roll} ${link4_pitch} ${link4_yaw}" />
-      <axis xyz="-1 0 0" />
+      <axis xyz="${link4_axis}" />
       <limit lower="${joint_4_lower_limit}" upper="${joint_4_upper_limit}"
         effort="${joint_4_effort_limit}"
         velocity="${joint_4_velocity_limit}" />
@@ -259,7 +259,7 @@
       <parent link="${tf_prefix}link_4" />
       <child link="${tf_prefix}link_5" />
       <origin xyz="${link5_x} ${link5_y} ${link5_z}" rpy="${link5_roll} ${link5_pitch} ${link5_yaw}" />
-      <axis xyz="0 1 0" />
+      <axis xyz="${link5_axis}" />
       <limit lower="${joint_5_lower_limit}" upper="${joint_5_upper_limit}"
         effort="${joint_5_effort_limit}"
         velocity="${joint_5_velocity_limit}" />
@@ -270,7 +270,7 @@
       <parent link="${tf_prefix}link_5" />
       <child link="${tf_prefix}link_6" />
       <origin xyz="${link6_x} ${link6_y} ${link6_z}" rpy="${link6_roll} ${link6_pitch} ${link6_yaw}" />
-      <axis xyz="-1 0 0" />
+      <axis xyz="${link6_axis}" />
       <limit lower="${joint_6_lower_limit}" upper="${joint_6_upper_limit}"
         effort="${joint_6_effort_limit}"
         velocity="${joint_6_velocity_limit}" />
@@ -289,7 +289,7 @@
     <joint name="${tf_prefix}joint_6-flange" type="fixed">
       <parent link="${tf_prefix}link_6" />
       <child link="${tf_prefix}flange" />
-      <origin xyz="0 0 0" rpy="0 0 0 " />
+      <origin xyz="0 0 ${flange_z}" rpy="0 ${flange_pitch} 0 " />
     </joint>
 
     <!-- This frame corresponds to the $TOOL coordinate system in KUKA KRC controllers -->
@@ -297,7 +297,7 @@
     <joint name="${tf_prefix}flange-tool0" type="fixed">
       <parent link="${tf_prefix}flange" />
       <child link="${tf_prefix}tool0" />
-      <origin xyz="0 0 0" rpy="0 ${radians(90)} 0" />
+      <origin xyz="0 0 0" rpy="0 ${tool0_pitch} 0" />
     </joint>
 
   </xacro:macro>
