@@ -6,6 +6,7 @@ kinematics:
     roll: 0.0
     pitch: 0.0
     yaw: 0.0
+    axis: "0.0 0.0 -1.0"
   link_2:
     x: 0.025
     y: 0.0
@@ -13,6 +14,7 @@ kinematics:
     roll: 0.0
     pitch: 0.0
     yaw: 0.0
+    axis: "0.0 1.0 0.0"
   link_3:
     x: 0.315
     y: 0.0
@@ -20,6 +22,7 @@ kinematics:
     roll: 0.0
     pitch: 0.0
     yaw: 0.0
+    axis: "0.0 1.0 0.0"
   link_4:
     x: 0.0
     y: 0.0
@@ -27,6 +30,7 @@ kinematics:
     roll: 0.0
     pitch: 0.0
     yaw: 0.0
+    axis: "-1.0 0.0 0.0"
   link_5:
     x: 0.365
     y: 0.0
@@ -34,11 +38,27 @@ kinematics:
     roll: 0.0
     pitch: 0.0
     yaw: 0.0
+    axis: "0.0 1.0 0.0"
   link_6:
     x: 0.080
     y: 0.0
     z: 0.0
     roll: 0.0
     pitch: 0.0
+    yaw: 0.0
+    axis: "-1.0 0.0 0.0"
+  flange:
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    roll: 0.0
+    pitch: 0.0
+    yaw: 0.0
+  tool0:
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    roll: 0.0
+    pitch: !degrees 90.0
     yaw: 0.0
 
