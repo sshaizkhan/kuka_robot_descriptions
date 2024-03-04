@@ -215,7 +215,7 @@
       <parent link="${tf_prefix}base_link" />
       <child link="${tf_prefix}link_1" />
       <origin xyz="${link1_x} ${link1_y} ${link1_z}" rpy="${link1_roll} ${link1_pitch} ${link1_yaw}" />
-      <axis xyz= "${link1_axis}"/>
+      <axis xyz="${link1_axis}" />
       <limit lower="${joint_1_lower_limit}" upper="${joint_1_upper_limit}"
         effort="${joint_1_effort_limit}"
         velocity="${joint_1_velocity_limit}" />
@@ -226,7 +226,7 @@
       <parent link="${tf_prefix}link_1" />
       <child link="${tf_prefix}link_2" />
       <origin xyz="${link2_x} ${link2_y} ${link2_z}" rpy="${link2_roll} ${link2_pitch} ${link2_yaw}" />
-      <axis xyz="${link2_axis}"/>
+      <axis xyz="${link2_axis}" />
       <limit lower="${joint_2_lower_limit}" upper="${joint_2_upper_limit}"
         effort="${joint_2_effort_limit}"
         velocity="${joint_2_velocity_limit}" />
