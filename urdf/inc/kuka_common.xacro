@@ -108,52 +108,58 @@
 
     <!-- Kinematics -->
     <!-- Link 1 -->
-    <xacro:property name="link1_x" value="${sec_kinematics['link_1']['x']}" scope="parent"/>
-    <xacro:property name="link1_y" value="${sec_kinematics['link_1']['y']}" scope="parent"/>
-    <xacro:property name="link1_z" value="${sec_kinematics['link_1']['z']}" scope="parent"/>
-    <xacro:property name="link1_roll" value="${sec_kinematics['link_1']['roll']}" scope="parent"/>
-    <xacro:property name="link1_pitch" value="${sec_kinematics['link_1']['pitch']}" scope="parent"/>
-    <xacro:property name="link1_yaw" value="${sec_kinematics['link_1']['yaw']}" scope="parent"/>
+    <xacro:property name="link1_x" value="${sec_kinematics['link_1']['x']}" scope="parent" />
+    <xacro:property name="link1_y" value="${sec_kinematics['link_1']['y']}" scope="parent" />
+    <xacro:property name="link1_z" value="${sec_kinematics['link_1']['z']}" scope="parent" />
+    <xacro:property name="link1_roll" value="${sec_kinematics['link_1']['roll']}" scope="parent" />
+    <xacro:property name="link1_pitch" value="${sec_kinematics['link_1']['pitch']}" scope="parent" />
+    <xacro:property name="link1_yaw" value="${sec_kinematics['link_1']['yaw']}" scope="parent" />
+    <xacro:property name="link1_axis" value="${sec_kinematics['link_1']['axis']}" scope="parent" />
 
     <!-- Link 2 -->
-    <xacro:property name="link2_x" value="${sec_kinematics['link_2']['x']}" scope="parent"/>
-    <xacro:property name="link2_y" value="${sec_kinematics['link_2']['y']}" scope="parent"/>
-    <xacro:property name="link2_z" value="${sec_kinematics['link_2']['z']}" scope="parent"/>
-    <xacro:property name="link2_roll" value="${sec_kinematics['link_2']['roll']}" scope="parent"/>
-    <xacro:property name="link2_pitch" value="${sec_kinematics['link_2']['pitch']}" scope="parent"/>
-    <xacro:property name="link2_yaw" value="${sec_kinematics['link_2']['yaw']}" scope="parent"/>
+    <xacro:property name="link2_x" value="${sec_kinematics['link_2']['x']}" scope="parent" />
+    <xacro:property name="link2_y" value="${sec_kinematics['link_2']['y']}" scope="parent" />
+    <xacro:property name="link2_z" value="${sec_kinematics['link_2']['z']}" scope="parent" />
+    <xacro:property name="link2_roll" value="${sec_kinematics['link_2']['roll']}" scope="parent" />
+    <xacro:property name="link2_pitch" value="${sec_kinematics['link_2']['pitch']}" scope="parent" />
+    <xacro:property name="link2_yaw" value="${sec_kinematics['link_2']['yaw']}" scope="parent" />
+    <xacro:property name="link2_axis" value="${sec_kinematics['link_2']['axis']}" scope="parent" />
 
     <!-- Link 3 -->
-    <xacro:property name="link3_x" value="${sec_kinematics['link_3']['x']}" scope="parent"/>
-    <xacro:property name="link3_y" value="${sec_kinematics['link_3']['y']}" scope="parent"/>
-    <xacro:property name="link3_z" value="${sec_kinematics['link_3']['z']}" scope="parent"/>
-    <xacro:property name="link3_roll" value="${sec_kinematics['link_3']['roll']}" scope="parent"/>
-    <xacro:property name="link3_pitch" value="${sec_kinematics['link_3']['pitch']}" scope="parent"/>
-    <xacro:property name="link3_yaw" value="${sec_kinematics['link_3']['yaw']}" scope="parent"/>
+    <xacro:property name="link3_x" value="${sec_kinematics['link_3']['x']}" scope="parent" />
+    <xacro:property name="link3_y" value="${sec_kinematics['link_3']['y']}" scope="parent" />
+    <xacro:property name="link3_z" value="${sec_kinematics['link_3']['z']}" scope="parent" />
+    <xacro:property name="link3_roll" value="${sec_kinematics['link_3']['roll']}" scope="parent" />
+    <xacro:property name="link3_pitch" value="${sec_kinematics['link_3']['pitch']}" scope="parent" />
+    <xacro:property name="link3_yaw" value="${sec_kinematics['link_3']['yaw']}" scope="parent" />
+    <xacro:property name="link3_axis" value="${sec_kinematics['link_3']['axis']}" scope="parent" />
 
     <!-- Link 4 -->
-    <xacro:property name="link4_x" value="${sec_kinematics['link_4']['x']}" scope="parent"/>
-    <xacro:property name="link4_y" value="${sec_kinematics['link_4']['y']}" scope="parent"/>
-    <xacro:property name="link4_z" value="${sec_kinematics['link_4']['z']}" scope="parent"/>
-    <xacro:property name="link4_roll" value="${sec_kinematics['link_4']['roll']}" scope="parent"/>
-    <xacro:property name="link4_pitch" value="${sec_kinematics['link_4']['pitch']}" scope="parent"/>
-    <xacro:property name="link4_yaw" value="${sec_kinematics['link_4']['yaw']}" scope="parent"/>
+    <xacro:property name="link4_x" value="${sec_kinematics['link_4']['x']}" scope="parent" />
+    <xacro:property name="link4_y" value="${sec_kinematics['link_4']['y']}" scope="parent" />
+    <xacro:property name="link4_z" value="${sec_kinematics['link_4']['z']}" scope="parent" />
+    <xacro:property name="link4_roll" value="${sec_kinematics['link_4']['roll']}" scope="parent" />
+    <xacro:property name="link4_pitch" value="${sec_kinematics['link_4']['pitch']}" scope="parent" />
+    <xacro:property name="link4_yaw" value="${sec_kinematics['link_4']['yaw']}" scope="parent" />
+    <xacro:property name="link4_axis" value="${sec_kinematics['link_4']['axis']}" scope="parent" />
 
     <!-- Link 5 -->
-    <xacro:property name="link5_x" value="${sec_kinematics['link_5']['x']}" scope="parent"/>
-    <xacro:property name="link5_y" value="${sec_kinematics['link_5']['y']}" scope="parent"/>
-    <xacro:property name="link5_z" value="${sec_kinematics['link_5']['z']}" scope="parent"/>
-    <xacro:property name="link5_roll" value="${sec_kinematics['link_5']['roll']}" scope="parent"/>
-    <xacro:property name="link5_pitch" value="${sec_kinematics['link_5']['pitch']}" scope="parent"/>
-    <xacro:property name="link5_yaw" value="${sec_kinematics['link_5']['yaw']}" scope="parent"/>
+    <xacro:property name="link5_x" value="${sec_kinematics['link_5']['x']}" scope="parent" />
+    <xacro:property name="link5_y" value="${sec_kinematics['link_5']['y']}" scope="parent" />
+    <xacro:property name="link5_z" value="${sec_kinematics['link_5']['z']}" scope="parent" />
+    <xacro:property name="link5_roll" value="${sec_kinematics['link_5']['roll']}" scope="parent" />
+    <xacro:property name="link5_pitch" value="${sec_kinematics['link_5']['pitch']}" scope="parent" />
+    <xacro:property name="link5_yaw" value="${sec_kinematics['link_5']['yaw']}" scope="parent" />
+    <xacro:property name="link5_axis" value="${sec_kinematics['link_5']['axis']}" scope="parent" />
 
     <!-- Link 6 -->
-    <xacro:property name="link6_x" value="${sec_kinematics['link_6']['x']}" scope="parent"/>
-    <xacro:property name="link6_y" value="${sec_kinematics['link_6']['y']}" scope="parent"/>
-    <xacro:property name="link6_z" value="${sec_kinematics['link_6']['z']}" scope="parent"/>
-    <xacro:property name="link6_roll" value="${sec_kinematics['link_6']['roll']}" scope="parent"/>
-    <xacro:property name="link6_pitch" value="${sec_kinematics['link_6']['pitch']}" scope="parent"/>
-    <xacro:property name="link6_yaw" value="${sec_kinematics['link_6']['yaw']}" scope="parent"/>
+    <xacro:property name="link6_x" value="${sec_kinematics['link_6']['x']}" scope="parent" />
+    <xacro:property name="link6_y" value="${sec_kinematics['link_6']['y']}" scope="parent" />
+    <xacro:property name="link6_z" value="${sec_kinematics['link_6']['z']}" scope="parent" />
+    <xacro:property name="link6_roll" value="${sec_kinematics['link_6']['roll']}" scope="parent" />
+    <xacro:property name="link6_pitch" value="${sec_kinematics['link_6']['pitch']}" scope="parent" />
+    <xacro:property name="link6_yaw" value="${sec_kinematics['link_6']['yaw']}" scope="parent" />
+    <xacro:property name="link6_axis" value="${sec_kinematics['link_6']['axis']}" scope="parent" />
 
     <!-- Inertia Parameters -->
     <!-- mass -->
