@@ -16,7 +16,7 @@ kinematics:
     yaw: 0.0
     axis: "0.0 1.0 0.0"
   link_3:
-    x: 0.315
+    x: 0.455
     y: 0.0
     z: 0.0
     roll: 0.0
@@ -32,7 +32,7 @@ kinematics:
     yaw: 0.0
     axis: "-1.0 0.0 0.0"
   link_5:
-    x: 0.365
+    x: 0.420
     y: 0.0
     z: 0.0
     roll: 0.0
@@ -61,4 +61,3 @@ kinematics:
     roll: 0.0
     pitch: !degrees 90.0
     yaw: 0.0
-

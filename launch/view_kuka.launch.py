@@ -44,7 +44,7 @@ def generate_launch_description():
         DeclareLaunchArgument(
             "kuka_type",
             description="Type/series of used UR robot.",
-            choices=["kr6_r700_sixx"],
+            choices=["kr6_r700_sixx", "kr6_r900_sixx", "kr10_r1100_2"],
         )
     )
     # General arguments
