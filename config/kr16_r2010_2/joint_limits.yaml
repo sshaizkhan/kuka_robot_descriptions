@@ -12,50 +12,50 @@ joint_limits:
     has_position_limits: true
     has_velocity_limits: true
     has_jerk: false
-    max_position: !degrees 170.0
-    max_velocity: !degrees 360.0
-    min_position: !degrees -170.0
-    max_effort: 288.36
+    max_position: !degrees 185.0
+    max_velocity: !degrees 200.0
+    min_position: !degrees -185.0
+    max_effort: 1905.3
   joint_2:
     has_acceleration_limits: false
     has_effort_limits: false
     has_position_limits: true
     has_velocity_limits: true
     has_jerk: false
-    max_position: !degrees 45.0
-    max_velocity: !degrees 300.0
-    min_position: !degrees -190.0
-    max_effort: 311.95
+    max_position: !degrees 65.0
+    max_velocity: !degrees 175.0
+    min_position: !degrees -185.0
+    max_effort: 1633.625
   joint_3:
     has_acceleration_limits: false
     has_effort_limits: false
     has_position_limits: true
     has_velocity_limits: true
     has_jerk: false
-    max_position: !degrees 156.0
-    max_velocity: !degrees 360.0
-    min_position: !degrees -120.0
-    max_effort: 119.76
+    max_position: !degrees 175.0
+    max_velocity: !degrees 190.0
+    min_position: !degrees -138.0
+    max_effort: 850.58
   joint_4:
     has_acceleration_limits: false
     has_effort_limits: false
     has_position_limits: true
     has_velocity_limits: true
     has_jerk: false
-    max_position: !degrees 185.0
-    max_velocity: !degrees 381.0
-    min_position: !degrees -185.0
-    max_effort: 46.08
+    max_position: !degrees 350.0
+    max_velocity: !degrees 430.0
+    min_position: !degrees -350.0
+    max_effort: 266.210
   joint_5:
     has_acceleration_limits: false
     has_effort_limits: false
     has_position_limits: true
     has_velocity_limits: true
     has_jerk: false
-    max_position: !degrees 120.0
-    max_velocity: !degrees 388.0
-    min_position: !degrees -120.0
-    max_effort: 41.61
+    max_position: !degrees 130.0
+    max_velocity: !degrees 430.0
+    min_position: !degrees -130.0
+    max_effort: 255.43
   joint_6:
     has_acceleration_limits: false
     has_effort_limits: false
@@ -63,6 +63,6 @@ joint_limits:
     has_velocity_limits: true
     has_jerk: false
     max_position: !degrees 350.0
-    max_velocity: !degrees 615.0
+    max_velocity: !degrees 630.0
     min_position: !degrees -350.0
-    max_effort: 28.03
+    max_effort: 111.657

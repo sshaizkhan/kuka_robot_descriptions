@@ -1,0 +1,38 @@
+inertia_parameters:
+  base_link_mass: 65.212
+  link_1_mass: 84.207
+  link_2_mass: 61.775
+  link_3_mass: 35.648
+  link_4_mass: 16.428
+  link_5_mass: 1.6438
+  link_6_mass: 0.4640
+
+  links:
+    base_link:
+      ixx: 0.0
+      iyy: 0.0
+      izz: 0.0
+    link_1:
+      ixx: 9.85967888
+      iyy: 0.91499458
+      izz: 10.23026596
+    link_2:
+      ixx: 0.34836069
+      iyy: 1.0268737
+      izz: 1.13887402
+    link_3:
+      ixx: 0.64549911
+      iyy: 0.04236472
+      izz: 0.6665241
+    link_4:
+      ixx: 0.64549911
+      iyy: 0.04236472
+      izz: 0.6665241
+    link_5:
+      ixx: 0.00017799
+      iyy: 0.00017643
+      izz: 0.00029589
+    link_6:
+      ixx: 0.00017799
+      iyy: 0.00017643
+      izz: 0.00029589
