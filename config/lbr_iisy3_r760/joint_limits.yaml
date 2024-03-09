@@ -1,0 +1,68 @@
+# joint_limits.yaml allows the dynamics properties specified in the URDF to be overwritten or augmented as needed
+# Specific joint properties can be changed with the keys [max_position, min_position, max_velocity, max_acceleration, max_jerk]
+# Joint limits can be turned off with [has_velocity_limits, has_acceleration_limits]
+
+# Easiest way to slow down the robot is to decrease the velocity and acceleration scaling factors
+default_velocity_scaling_factor: 1.0
+default_acceleration_scaling_factor: 1.0
+joint_limits:
+  joint_1:
+    has_acceleration_limits: false
+    has_effort_limits: false
+    has_position_limits: true
+    has_velocity_limits: true
+    has_jerk: false
+    max_position: !degrees 185.0
+    max_velocity: !degrees 200.0
+    min_position: !degrees -185.0
+    max_effort: 74.93
+  joint_2:
+    has_acceleration_limits: false
+    has_effort_limits: false
+    has_position_limits: true
+    has_velocity_limits: true
+    has_jerk: false
+    max_position: !degrees 50.0
+    max_velocity: !degrees 200.0
+    min_position: !degrees -230.0
+    max_effort: 74.47
+  joint_3:
+    has_acceleration_limits: false
+    has_effort_limits: false
+    has_position_limits: true
+    has_velocity_limits: true
+    has_jerk: false
+    max_position: !degrees 150.0
+    max_velocity: !degrees 200.0
+    min_position: !degrees -150.0
+    max_effort: 43.39
+  joint_4:
+    has_acceleration_limits: false
+    has_effort_limits: false
+    has_position_limits: true
+    has_velocity_limits: true
+    has_jerk: false
+    max_position: !degrees 175.0
+    max_velocity: !degrees 300.0
+    min_position: !degrees -175.0
+    max_effort: 14.76
+  joint_5:
+    has_acceleration_limits: false
+    has_effort_limits: false
+    has_position_limits: true
+    has_velocity_limits: true
+    has_jerk: false
+    max_position: !degrees 110.0
+    max_velocity: !degrees 300.0
+    min_position: !degrees -110.0
+    max_effort: 13.18
+  joint_6:
+    has_acceleration_limits: false
+    has_effort_limits: false
+    has_position_limits: true
+    has_velocity_limits: true
+    has_jerk: false
+    max_position: !degrees 220.0
+    max_velocity: !degrees 400.0
+    min_position: !degrees -220.0
+    max_effort: 4.83
