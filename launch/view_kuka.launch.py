@@ -46,7 +46,8 @@ def generate_launch_description():
             description="Type/series of used UR robot.",
             choices=["kr6_r700_sixx", "kr6_r900_sixx",
                      "kr10_r1100_2", "kr16_r2010_2", "kr210_r2700_2",
-                     "kr210_r3100_2", "kr560_r3100_2", "lbr_iisy3_r760", "lbr_iisy11_r1300"],
+                     "kr210_r3100_2", "kr560_r3100_2", "lbr_iisy3_r760",
+                     "lbr_iisy11_r1300", "lbr_iisy15_r930"],
         )
     )
     # General arguments
