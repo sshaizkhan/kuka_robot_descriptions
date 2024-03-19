@@ -2,11 +2,13 @@
 <robot xmlns:xacro="http://wiki.ros.org/xacro" name="$(arg name)">
   <!-- robot name parameter -->
   <xacro:arg name="name" default="kuka" />
+  <!-- robot degree of freedom -->
+  <xacro:property name="dof" default="6" />
   <!-- import main macro -->
   <xacro:include filename="$(find kuka_robot_descriptions)/urdf/kuka_macro.xacro" />
 
   <!-- Possible type are:
-    1.kr6_700_sixx
+    1.kr6_r700_sixx
     2.kr6_r900_sixx
     3.kr10_r1100_2
     4.kr16_r2010_2
@@ -53,6 +55,7 @@
     client_ip="$(arg client_ip)"
     client_port="$(arg client_port)"
     force_abs_paths="$(arg force_abs_paths)"
+    degrees_of_freedom="$(arg dof)"
   >
     <origin xyz="0 0 0" rpy="0 0 0" />          <!-- position robot in the world -->
   </xacro:kuka_robot>

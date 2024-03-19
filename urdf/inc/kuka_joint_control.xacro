@@ -5,6 +5,7 @@
     params="
     tf_prefix
     initial_positions:=${dict(joint_1=0.0,joint_2=-1.57,joint_3=0.0,joint_4=-1.57,joint_5=0.0,joint_6=0.0)}
+    dof:=6
     ">
     <joint name="${tf_prefix}joint_1">
       <command_interface name="position" />
@@ -42,5 +43,13 @@
         <param name="initial_value">${initial_positions['joint_6']}</param>
       </state_interface>
     </joint>
+    <xacro:if value="${dof == 7}">
+      <joint name="${tf_prefix}joint_7">
+        <command_interface name="position" />
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+      </joint>
+    </xacro:if>
   </xacro:macro>
 </robot>

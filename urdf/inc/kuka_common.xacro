@@ -68,7 +68,7 @@
   </xacro:macro>
 
   <xacro:macro name="read_model_data"
-    params="joint_limits_parameters_file kinematics_parameters_file physical_parameters_file visual_parameters_file force_abs_paths">
+    params="joint_limits_parameters_file kinematics_parameters_file physical_parameters_file visual_parameters_file force_abs_paths dof">
 
     <xacro:property name="force_abs_paths" value="${force_abs_paths}" scope="parent" />
     <!-- Read .yaml files from disk, load content into properties -->
@@ -154,6 +154,18 @@
     <xacro:property name="joint_6_effort_limit" value="${sec_limits['joint_6']['max_effort']}"
       scope="parent" />
 
+    <!-- Joint7 -->
+    <xacro:if value="${dof == 7}">
+      <xacro:property name="joint_7_lower_limit" value="${sec_limits['joint_7']['min_position']}"
+        scope="parent" />
+      <xacro:property name="joint_7_upper_limit" value="${sec_limits['joint_7']['max_position']}"
+        scope="parent" />
+      <xacro:property name="joint_7_velocity_limit" value="${sec_limits['joint_7']['max_velocity']}"
+        scope="parent" />
+      <xacro:property name="joint_7_effort_limit" value="${sec_limits['joint_7']['max_effort']}"
+        scope="parent" />
+    </xacro:if>
+
     <!-- Kinematics -->
     <!-- Link 1 -->
     <xacro:property name="link1_x" value="${sec_kinematics['link_1']['x']}" scope="parent" />
@@ -209,6 +221,17 @@
     <xacro:property name="link6_yaw" value="${sec_kinematics['link_6']['yaw']}" scope="parent" />
     <xacro:property name="link6_axis" value="${sec_kinematics['link_6']['axis']}" scope="parent" />
 
+    <!-- Link 7 -->
+    <xacro:if value="${dof == 7}">
+      <xacro:property name="link7_x" value="${sec_kinematics['link_7']['x']}" scope="parent" />
+      <xacro:property name="link7_y" value="${sec_kinematics['link_7']['y']}" scope="parent" />
+      <xacro:property name="link7_z" value="${sec_kinematics['link_7']['z']}" scope="parent" />
+      <xacro:property name="link7_roll" value="${sec_kinematics['link_7']['roll']}" scope="parent" />
+      <xacro:property name="link7_pitch" value="${sec_kinematics['link_7']['pitch']}" scope="parent" />
+      <xacro:property name="link7_yaw" value="${sec_kinematics['link_7']['yaw']}" scope="parent" />
+      <xacro:property name="link7_axis" value="${sec_kinematics['link_7']['axis']}" scope="parent" />
+    </xacro:if>
+
     <!-- Flange -->
     <xacro:property name="flange_x" value="${sec_kinematics['flange']['x']}" scope="parent" />
     <xacro:property name="flange_y" value="${sec_kinematics['flange']['y']}" scope="parent" />
@@ -241,6 +264,10 @@
       scope="parent" />
     <xacro:property name="link_6_mass" value="${sec_inertia_parameters['link_6_mass']}"
       scope="parent" />
+    <xacro:if value="${dof == 7}">
+      <xacro:property name="link_7_mass" value="${sec_inertia_parameters['link_7_mass']}"
+        scope="parent" />
+    </xacro:if>
 
     <!-- Link Inertia Parameters -->
     <xacro:property name="intertia_links" value="${sec_inertia_parameters['links']}" scope="parent" />
@@ -278,6 +305,13 @@
     <xacro:property name="link_6_ixx" value="${intertia_links['link_6']['ixx']}" scope="parent" />
     <xacro:property name="link_6_iyy" value="${intertia_links['link_6']['iyy']}" scope="parent" />
     <xacro:property name="link_6_izz" value="${intertia_links['link_6']['izz']}" scope="parent" />
+
+    <!-- Link 7 -->
+    <xacro:if value="${dof == 7}">
+      <xacro:property name="link_7_ixx" value="${intertia_links['link_7']['ixx']}" scope="parent" />
+      <xacro:property name="link_7_iyy" value="${intertia_links['link_7']['iyy']}" scope="parent" />
+      <xacro:property name="link_7_izz" value="${intertia_links['link_7']['izz']}" scope="parent" />
+    </xacro:if>
 
   </xacro:macro>
 </robot>

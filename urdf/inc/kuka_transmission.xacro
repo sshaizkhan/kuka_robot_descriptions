@@ -6,7 +6,7 @@
           this location. Nor can they rely on the existence of the macro.
   -->
 
-  <xacro:macro name="kuka_arm_transmission" params="tf_prefix">
+  <xacro:macro name="kuka_arm_transmission" params="tf_prefix dof">
 
     <transmission name="${tf_prefix}joint_1_trans">
       <actuator name="${tf_prefix}joint_1_motor">
@@ -73,6 +73,19 @@
       </joint>
       <type>transmission_interface/SimpleTransmission</type>
     </transmission>
+
+    <xacro:if value="${dof == 7}">
+      <transmission name="${tf_prefix}joint_7_trans">
+        <actuator name="${tf_prefix}joint_7_motor">
+          <hardwareInterface>EffortJointInterface</hardwareInterface>
+          <mechanicalReduction>1.0</mechanicalReduction>
+        </actuator>
+        <joint name="${tf_prefix}joint_7">
+          <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <type>transmission_interface/SimpleTransmission</type>
+      </transmission>
+    </xacro:if>
 
   </xacro:macro>
 </robot>

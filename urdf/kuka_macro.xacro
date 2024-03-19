@@ -42,6 +42,7 @@
     physical_parameters_file
     visual_parameters_file
     force_abs_paths:=false
+    degrees_of_freedom
     ">
 
     <xacro:kuka_ros2_control
@@ -50,7 +51,10 @@
       client_ip="${client_ip}"
       client_port="${client_port}"
       use_fake_hardware="${use_fake_hardware}"
+      dof="${degrees_of_freedom}"
     />
+
+    <xacro:kuka_arm_transmission tf_prefix="${tf_prefix}" dof="${degrees_of_freedom}" />
 
     <!-- Load configuration data from the provided .yaml files -->
     <xacro:read_model_data
@@ -58,7 +62,9 @@
       kinematics_parameters_file="${kinematics_parameters_file}"
       physical_parameters_file="${physical_parameters_file}"
       visual_parameters_file="${visual_parameters_file}"
-      force_abs_paths="${force_abs_paths}" />
+      force_abs_paths="${force_abs_paths}"
+      dof="${degrees_of_freedom}"
+    />
 
 
     <!-- Links -main serial chain -->
@@ -202,6 +208,28 @@
       </xacro:inertial_block>
     </link>
 
+    <!-- Link-7 -->
+    <xacro:if value="${degrees_of_freedom == 7}">
+      <link name="${tf_prefix}link_7">
+        <visual>
+          <origin xyz="0 0 0" rpy="0 0 0" />
+          <geometry>
+            <xacro:get_mesh name="link_7" type="visual" />
+          </geometry>
+          <xacro:get_material name="link_7" type="visual" />
+        </visual>
+        <collision>
+          <geometry>
+            <xacro:get_mesh name="link_7" type="collision" />
+          </geometry>
+        </collision>
+        <xacro:inertial_block mass="${link_7_mass}" ixx="${link_7_ixx}" iyy="${link_7_iyy}"
+          izz="${link_7_izz}">
+          <origin xyz="0 0 0" rpy="0 0 0" />
+        </xacro:inertial_block>
+      </link>
+    </xacro:if>
+
     <!-- base_joint fixes base_link to the environment -->
     <joint name="${tf_prefix}${parent}-base_link" type="fixed">
       <parent link="${parent}" />
@@ -276,6 +304,20 @@
         velocity="${joint_6_velocity_limit}" />
     </joint>
 
+    <!-- Joint-7 -->
+    <xacro:if value="${degrees_of_freedom == 7}">
+      <joint name="${tf_prefix}joint_7" type="revolute">
+        <parent link="${tf_prefix}link_6" />
+        <child link="${tf_prefix}link_7" />
+        <origin xyz="${link7_x} ${link7_y} ${link7_z}"
+          rpy="${link7_roll} ${link7_pitch} ${link7_yaw}" />
+        <axis xyz="${link7_axis}" />
+        <limit lower="${joint_7_lower_limit}" upper="${joint_7_upper_limit}"
+          effort="${joint_7_effort_limit}"
+          velocity="${joint_7_velocity_limit}" />
+      </joint>
+    </xacro:if>
+
     <!-- ROS base_link to KUKA $ROBROOT coordinate system transform -->
     <link name="${tf_prefix}base" />
     <joint name="${tf_prefix}base_link-base" type="fixed">
@@ -285,12 +327,22 @@
     </joint>
 
     <!-- ROS-Industrial 'flange' frame - attachment point for EEF models -->
-    <link name="${tf_prefix}flange" />
-    <joint name="${tf_prefix}joint_6-flange" type="fixed">
-      <parent link="${tf_prefix}link_6" />
-      <child link="${tf_prefix}flange" />
-      <origin xyz="0 0 ${flange_z}" rpy="0 ${flange_pitch} 0 " />
-    </joint>
+    <xacro:if value="${degrees_of_freedom == 7}">
+      <link name="${tf_prefix}flange" />
+      <joint name="${tf_prefix}joint_7-flange" type="fixed">
+        <parent link="${tf_prefix}link_7" />
+        <child link="${tf_prefix}flange" />
+        <origin xyz="0 0 ${flange_z}" rpy="0 ${flange_pitch} 0 " />
+      </joint>
+    </xacro:if>
+    <xacro:if value="${degrees_of_freedom == 6}">
+      <link name="${tf_prefix}flange" />
+      <joint name="${tf_prefix}joint_6-flange" type="fixed">
+        <parent link="${tf_prefix}link_6" />
+        <child link="${tf_prefix}flange" />
+        <origin xyz="0 0 ${flange_z}" rpy="0 ${flange_pitch} 0 " />
+      </joint>
+    </xacro:if>
 
     <!-- This frame corresponds to the $TOOL coordinate system in KUKA KRC controllers -->
     <link name="${tf_prefix}tool0" />

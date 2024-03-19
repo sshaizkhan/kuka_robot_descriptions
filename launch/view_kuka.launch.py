@@ -75,6 +75,13 @@ def generate_launch_description():
         have to be updated.",
         )
     )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "dof",
+            default_value="6",
+            description="Degree of freedom of the robot.",
+        )
+    )
 
     # Initialize Arguments
     kuka_type = LaunchConfiguration("kuka_type")
@@ -98,6 +105,9 @@ def generate_launch_description():
             " ",
             "tf_prefix:=",
             tf_prefix,
+            " ",
+            "dof:=",
+            "6",
         ]
     )
     robot_description = {"robot_description": ParameterValue(
