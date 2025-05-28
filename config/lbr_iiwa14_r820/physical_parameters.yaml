@@ -1,0 +1,53 @@
+inertia_parameters:
+  # Note: These are placeholder values - actual values need to be obtained from KUKA specifications
+  # for the LBR IIWA14 R820 robot
+  base_link_mass: 7.0  # Placeholder - needs actual value
+  link_1_mass: 4.0     # Placeholder - needs actual value
+  link_2_mass: 4.0     # Placeholder - needs actual value
+  link_3_mass: 3.0     # Placeholder - needs actual value
+  link_4_mass: 2.7     # Placeholder - needs actual value
+  link_5_mass: 1.7     # Placeholder - needs actual value
+  link_6_mass: 1.8     # Placeholder - needs actual value
+  link_7_mass: 0.3     # Placeholder - needs actual value
+
+  links:
+    base_link:
+      # Placeholder values - need to be replaced with actual KUKA specifications
+      ixx: 0.01
+      iyy: 0.01
+      izz: 0.01
+    link_1:
+      # Placeholder values - need to be replaced with actual KUKA specifications
+      ixx: 0.02
+      iyy: 0.02
+      izz: 0.02
+    link_2:
+      # Placeholder values - need to be replaced with actual KUKA specifications
+      ixx: 0.02
+      iyy: 0.02
+      izz: 0.02
+    link_3:
+      # Placeholder values - need to be replaced with actual KUKA specifications
+      ixx: 0.015
+      iyy: 0.015
+      izz: 0.015
+    link_4:
+      # Placeholder values - need to be replaced with actual KUKA specifications
+      ixx: 0.01
+      iyy: 0.01
+      izz: 0.01
+    link_5:
+      # Placeholder values - need to be replaced with actual KUKA specifications
+      ixx: 0.008
+      iyy: 0.008
+      izz: 0.008
+    link_6:
+      # Placeholder values - need to be replaced with actual KUKA specifications
+      ixx: 0.005
+      iyy: 0.005
+      izz: 0.005
+    link_7:
+      # Placeholder values - need to be replaced with actual KUKA specifications
+      ixx: 0.001
+      iyy: 0.001
+      izz: 0.001

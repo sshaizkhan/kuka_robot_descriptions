@@ -7,11 +7,11 @@
     params="
     name
     tf_prefix
-    initial_positions:=${dict(joint_1=0.0,joint_2=-1.57,joint_3=0.0,joint_4=-1.57,joint_5=0.0,joint_6=0.0)}
+    initial_positions:=${dict(joint_1=0.0,joint_2=-1.57,joint_3=0.0,joint_4=-1.57,joint_5=0.0,joint_6=0.0,joint_7=0.0)}
     client_ip
     client_port
     use_fake_hardware
-    dof:=6
+    dof
     ">
 
     <ros2_control name="${name}" type="system">

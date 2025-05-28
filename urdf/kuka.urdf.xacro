@@ -2,8 +2,6 @@
 <robot xmlns:xacro="http://wiki.ros.org/xacro" name="$(arg name)">
   <!-- robot name parameter -->
   <xacro:arg name="name" default="kuka" />
-  <!-- robot degree of freedom -->
-  <xacro:property name="dof" default="6" />
   <!-- import main macro -->
   <xacro:include filename="$(find kuka_robot_descriptions)/urdf/kuka_macro.xacro" />
 
@@ -21,6 +19,8 @@
     11.lbr_iiwa14_r820
   -->
   <xacro:arg name="kuka_type" default="kr6x" />
+  <!-- robot degree of freedom -->
+  <xacro:arg name="dof" default="6" />
 
   <!-- parameters for the robot -->
   <xacro:arg name="tf_prefix" default="" />
@@ -46,6 +46,7 @@
   <xacro:kuka_robot
     name="$(arg name)"
     tf_prefix="$(arg tf_prefix)"
+    dof="$(arg dof)"
     parent="world"
     use_fake_hardware="$(arg use_fake_hardware)"
     joint_limits_parameters_file="$(arg joint_limit_params)"
@@ -55,7 +56,6 @@
     client_ip="$(arg client_ip)"
     client_port="$(arg client_port)"
     force_abs_paths="$(arg force_abs_paths)"
-    degrees_of_freedom="$(arg dof)"
   >
     <origin xyz="0 0 0" rpy="0 0 0" />          <!-- position robot in the world -->
   </xacro:kuka_robot>
