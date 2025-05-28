@@ -39,7 +39,6 @@ from launch_ros.parameter_descriptions import ParameterValue
 
 def validate_robot_config(context):
     """Validate that the robot type and DOF combination is supported."""
-    
     # Define supported robot configurations
     ROBOT_CONFIGS = {
         # 6 DOF Industrial Robots
@@ -56,20 +55,19 @@ def validate_robot_config(context):
         # 7 DOF Collaborative Robots (can also work in 6 DOF mode for some)
         "lbr_iiwa14_r820": [7],
     }
-    
+
     kuka_type = LaunchConfiguration("kuka_type").perform(context)
     dof = int(LaunchConfiguration("dof").perform(context))
-    
+
     if kuka_type not in ROBOT_CONFIGS:
         raise ValueError(f"Unsupported robot type: {kuka_type}")
-    
+
     if dof not in ROBOT_CONFIGS[kuka_type]:
         supported_dofs = ROBOT_CONFIGS[kuka_type]
         raise ValueError(
-            f"Robot {kuka_type} does not support {dof} DOF. "
-            f"Supported DOF(s): {supported_dofs}"
+            f"Robot {kuka_type} does not support {dof} DOF. " f"Supported DOF(s): {supported_dofs}"
         )
-    
+
     print(f"✓ Validated: {kuka_type} with {dof} DOF is supported")
     return []
 
@@ -77,7 +75,7 @@ def validate_robot_config(context):
 def launch_setup(context, *args, **kwargs):
     # Validate configuration first
     validate_robot_config(context)
-    
+
     # Initialize Arguments
     kuka_type = LaunchConfiguration("kuka_type")
     dof = LaunchConfiguration("dof")
@@ -90,7 +88,8 @@ def launch_setup(context, *args, **kwargs):
             PathJoinSubstitution([FindExecutable(name="xacro")]),
             " ",
             PathJoinSubstitution(
-                [FindPackageShare(description_package), "urdf", description_file]),
+                [FindPackageShare(description_package), "urdf", description_file]
+            ),
             " ",
             "name:=",
             "kuka",
@@ -105,12 +104,12 @@ def launch_setup(context, *args, **kwargs):
             dof,
         ]
     )
-    robot_description = {"robot_description": ParameterValue(
-        robot_description_content, value_type=str)}
+    robot_description = {
+        "robot_description": ParameterValue(robot_description_content, value_type=str)
+    }
 
     rviz_config_file = PathJoinSubstitution(
-        [FindPackageShare(description_package), "rviz",
-         "view_robot.rviz"]
+        [FindPackageShare(description_package), "rviz", "view_robot.rviz"]
     )
 
     joint_state_publisher_node = Node(
@@ -142,7 +141,7 @@ def launch_setup(context, *args, **kwargs):
 
 def generate_launch_description():
     declared_arguments = []
-    
+
     # KUKA specific arguments
     declared_arguments.append(
         DeclareLaunchArgument(
@@ -150,12 +149,18 @@ def generate_launch_description():
             description="Type/series of used KUKA robot.",
             choices=[
                 # 6 DOF Industrial Robots
-                "kr6_r700_sixx", "kr6_r900_sixx",
-                "kr10_r1100_2", "kr16_r2010_2", "kr210_r2700_2",
-                "kr210_r3100_2", "kr560_r3100_2",
+                "kr6_r700_sixx",
+                "kr6_r900_sixx",
+                "kr10_r1100_2",
+                "kr16_r2010_2",
+                "kr210_r2700_2",
+                "kr210_r3100_2",
+                "kr560_r3100_2",
                 # 7 DOF Collaborative Robots
-                "lbr_iisy3_r760", "lbr_iisy11_r1300", "lbr_iisy15_r930",
-                "lbr_iiwa14_r820"
+                "lbr_iisy3_r760",
+                "lbr_iisy11_r1300",
+                "lbr_iisy15_r930",
+                "lbr_iiwa14_r820",
             ],
             default_value="kr6_r700_sixx",
         )
@@ -163,12 +168,12 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "dof",
-            description="Degrees of Freedom for the robot (6 or 7). Must match the robot type capability.",
+            description="Degrees of Freedom for the robot (6 or 7).",
             choices=["6", "7"],
             default_value="6",
         )
     )
-    
+
     # General arguments
     declared_arguments.append(
         DeclareLaunchArgument(

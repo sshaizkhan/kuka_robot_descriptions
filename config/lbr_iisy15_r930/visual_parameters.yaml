@@ -89,4 +89,3 @@ mesh_files:
       mesh:
         package: kuka_robot_descriptions
         path: meshes/lbr_iisy15_r930/collision/link_6.stl
-

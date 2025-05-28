@@ -5,9 +5,7 @@
           package. Users CANNOT rely on this file being available, or stored in
           this location. Nor can they rely on the existence of the macro.
   -->
-
   <xacro:macro name="kuka_arm_transmission" params="tf_prefix dof">
-
     <transmission name="${tf_prefix}joint_1_trans">
       <actuator name="${tf_prefix}joint_1_motor">
         <hardwareInterface>EffortJointInterface</hardwareInterface>
@@ -18,7 +16,6 @@
       </joint>
       <type>transmission_interface/SimpleTransmission</type>
     </transmission>
-
     <transmission name="${tf_prefix}joint_2_trans">
       <actuator name="${tf_prefix}joint_2_motor">
         <hardwareInterface>EffortJointInterface</hardwareInterface>
@@ -29,7 +26,6 @@
       </joint>
       <type>transmission_interface/SimpleTransmission</type>
     </transmission>
-
     <transmission name="${tf_prefix}joint_3_trans">
       <actuator name="${tf_prefix}joint_3_motor">
         <hardwareInterface>EffortJointInterface</hardwareInterface>
@@ -40,7 +36,6 @@
       </joint>
       <type>transmission_interface/SimpleTransmission</type>
     </transmission>
-
     <transmission name="${tf_prefix}joint_4_trans">
       <actuator name="${tf_prefix}joint_4_motor">
         <hardwareInterface>EffortJointInterface</hardwareInterface>
@@ -51,7 +46,6 @@
       </joint>
       <type>transmission_interface/SimpleTransmission</type>
     </transmission>
-
     <transmission name="${tf_prefix}joint_5_trans">
       <actuator name="${tf_prefix}joint_5_motor">
         <hardwareInterface>EffortJointInterface</hardwareInterface>
@@ -62,7 +56,6 @@
       </joint>
       <type>transmission_interface/SimpleTransmission</type>
     </transmission>
-
     <transmission name="${tf_prefix}joint_6_trans">
       <actuator name="${tf_prefix}joint_6_motor">
         <hardwareInterface>EffortJointInterface</hardwareInterface>
@@ -73,7 +66,6 @@
       </joint>
       <type>transmission_interface/SimpleTransmission</type>
     </transmission>
-
     <xacro:if value="${dof == 7}">
       <transmission name="${tf_prefix}joint_7_trans">
         <actuator name="${tf_prefix}joint_7_motor">
@@ -86,6 +78,5 @@
         <type>transmission_interface/SimpleTransmission</type>
       </transmission>
     </xacro:if>
-
   </xacro:macro>
 </robot>
