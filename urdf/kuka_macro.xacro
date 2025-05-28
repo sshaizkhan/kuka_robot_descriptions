@@ -32,6 +32,7 @@
     params="
     name
     tf_prefix
+    dof
     parent
     *origin
     client_ip
@@ -42,7 +43,6 @@
     physical_parameters_file
     visual_parameters_file
     force_abs_paths:=false
-    degrees_of_freedom
     ">
 
     <xacro:kuka_ros2_control
@@ -51,10 +51,10 @@
       client_ip="${client_ip}"
       client_port="${client_port}"
       use_fake_hardware="${use_fake_hardware}"
-      dof="${degrees_of_freedom}"
+      dof="${dof}"
     />
 
-    <xacro:kuka_arm_transmission tf_prefix="${tf_prefix}" dof="${degrees_of_freedom}" />
+    <xacro:kuka_arm_transmission tf_prefix="${tf_prefix}" dof="${dof}" />
 
     <!-- Load configuration data from the provided .yaml files -->
     <xacro:read_model_data
@@ -63,7 +63,7 @@
       physical_parameters_file="${physical_parameters_file}"
       visual_parameters_file="${visual_parameters_file}"
       force_abs_paths="${force_abs_paths}"
-      dof="${degrees_of_freedom}"
+      dof="${dof}"
     />
 
 
@@ -209,7 +209,7 @@
     </link>
 
     <!-- Link-7 -->
-    <xacro:if value="${degrees_of_freedom == 7}">
+    <xacro:if value="${dof == 7}">
       <link name="${tf_prefix}link_7">
         <visual>
           <origin xyz="0 0 0" rpy="0 0 0" />
@@ -305,7 +305,7 @@
     </joint>
 
     <!-- Joint-7 -->
-    <xacro:if value="${degrees_of_freedom == 7}">
+    <xacro:if value="${dof == 7}">
       <joint name="${tf_prefix}joint_7" type="revolute">
         <parent link="${tf_prefix}link_6" />
         <child link="${tf_prefix}link_7" />
@@ -320,14 +320,14 @@
 
     <!-- ROS base_link to KUKA $ROBROOT coordinate system transform -->
     <link name="${tf_prefix}base" />
-    <joint name="${tf_prefix}base_link-base" type="fixed">
+    <joint name="${tf_prefix}base_link-base_joint" type="fixed">
       <origin xyz="0 0 0" rpy="0 0 0" />
       <parent link="${tf_prefix}base_link" />
       <child link="${tf_prefix}base" />
     </joint>
 
     <!-- ROS-Industrial 'flange' frame - attachment point for EEF models -->
-    <xacro:if value="${degrees_of_freedom == 7}">
+    <xacro:if value="${dof == 7}">
       <link name="${tf_prefix}flange" />
       <joint name="${tf_prefix}joint_7-flange" type="fixed">
         <parent link="${tf_prefix}link_7" />
@@ -335,7 +335,7 @@
         <origin xyz="0 0 ${flange_z}" rpy="0 ${flange_pitch} 0 " />
       </joint>
     </xacro:if>
-    <xacro:if value="${degrees_of_freedom == 6}">
+    <xacro:if value="${dof == 6}">
       <link name="${tf_prefix}flange" />
       <joint name="${tf_prefix}joint_6-flange" type="fixed">
         <parent link="${tf_prefix}link_6" />

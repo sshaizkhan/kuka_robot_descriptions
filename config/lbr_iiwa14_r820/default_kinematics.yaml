@@ -1,0 +1,71 @@
+kinematics:
+  link_1:
+    x: 0.0
+    y: 0.0
+    z: 0.1575
+    roll: 0.0
+    pitch: 0.0
+    yaw: 0.0
+    axis: "0.0 0.0 1.0"
+  link_2:
+    x: 0.0
+    y: 0.0
+    z: 0.2025
+    roll: 0.0
+    pitch: 0.0
+    yaw: 0.0
+    axis: "0.0 1.0 0.0"
+  link_3:
+    x: 0.0
+    y: 0.0
+    z: 0.2045
+    roll: 0.0
+    pitch: 0.0
+    yaw: 0.0
+    axis: "0.0 0.0 1.0"
+  link_4:
+    x: 0.0
+    y: 0.0
+    z: 0.2155
+    roll: 0.0
+    pitch: 0.0
+    yaw: 0.0
+    axis: "0.0 -1.0 0.0"
+  link_5:
+    x: 0.0
+    y: 0.0
+    z: 0.1845
+    roll: 0.0
+    pitch: 0.0
+    yaw: 0.0
+    axis: "0.0 0.0 1.0"
+  link_6:
+    x: 0.0
+    y: 0.0
+    z: 0.2155
+    roll: 0.0
+    pitch: 0.0
+    yaw: 0.0
+    axis: "0.0 1.0 0.0"
+  link_7:
+    x: 0.0
+    y: 0.0
+    z: 0.081
+    roll: 0.0
+    pitch: 0.0
+    yaw: 0.0
+    axis: "0.0 0.0 1.0"
+  flange:
+    x: 0.0
+    y: 0.0
+    z: 0.071
+    roll: 0.0
+    pitch: 0.0
+    yaw: 0.0
+  tool0:
+    x: 0.0
+    y: 0.0
+    z: 0.071
+    roll: 0.0
+    pitch: 0.0
+    yaw: 0.0
