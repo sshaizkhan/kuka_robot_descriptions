@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="kr_180_r3200_pa">
+  <xacro:arg name="prefix" default=""/>
+  <xacro:include filename="$(find kuka_robot_descriptions)/urdf/kr_180_r3200_pa_macro.xacro"/>
+  <link name="world"/>
+  <xacro:kr_180_r3200_pa prefix="$(arg prefix)" parent="world">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:kr_180_r3200_pa>
+</robot>

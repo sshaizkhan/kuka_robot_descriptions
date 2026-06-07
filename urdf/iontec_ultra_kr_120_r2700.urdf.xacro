@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="iontec_ultra_kr_120_r2700">
+  <xacro:arg name="prefix" default=""/>
+  <xacro:include filename="$(find kuka_robot_descriptions)/urdf/iontec_ultra_kr_120_r2700_macro.xacro"/>
+  <link name="world"/>
+  <xacro:iontec_ultra_kr_120_r2700 prefix="$(arg prefix)" parent="world">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:iontec_ultra_kr_120_r2700>
+</robot>

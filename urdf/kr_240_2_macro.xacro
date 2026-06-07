@@ -1,0 +1,212 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- KUKA KR 240-2 - generated from RoboDK .robot -->
+  <xacro:macro name="kr_240_2" params="prefix parent *origin">
+
+    <material name="${prefix}kr_240_2_grey"><color rgba="0.85 0.85 0.85 1.0"/></material>
+
+    <joint name="${prefix}base_joint" type="fixed">
+      <xacro:insert_block name="origin"/>
+      <parent link="${parent}"/>
+      <child link="${prefix}base_link"/>
+    </joint>
+
+    <link name="${prefix}base_link">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://kuka_robot_descriptions/meshes/kr_240_2/visual/base_link.dae" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://kuka_robot_descriptions/meshes/kr_240_2/collision/base_link.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}link_1">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://kuka_robot_descriptions/meshes/kr_240_2/visual/link_1.dae" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://kuka_robot_descriptions/meshes/kr_240_2/collision/link_1.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}link_2">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://kuka_robot_descriptions/meshes/kr_240_2/visual/link_2.dae" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://kuka_robot_descriptions/meshes/kr_240_2/collision/link_2.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}link_3">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://kuka_robot_descriptions/meshes/kr_240_2/visual/link_3.dae" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://kuka_robot_descriptions/meshes/kr_240_2/collision/link_3.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}link_4">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://kuka_robot_descriptions/meshes/kr_240_2/visual/link_4.dae" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://kuka_robot_descriptions/meshes/kr_240_2/collision/link_4.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}link_5">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://kuka_robot_descriptions/meshes/kr_240_2/visual/link_5.dae" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://kuka_robot_descriptions/meshes/kr_240_2/collision/link_5.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}link_6">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://kuka_robot_descriptions/meshes/kr_240_2/visual/link_6.dae" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://kuka_robot_descriptions/meshes/kr_240_2/collision/link_6.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}link_7">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://kuka_robot_descriptions/meshes/kr_240_2/visual/link_7.dae" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://kuka_robot_descriptions/meshes/kr_240_2/collision/link_7.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}link_8">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://kuka_robot_descriptions/meshes/kr_240_2/visual/link_8.dae" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://kuka_robot_descriptions/meshes/kr_240_2/collision/link_8.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="${prefix}joint_1" type="revolute">
+      <parent link="${prefix}base_link"/>
+      <child link="${prefix}link_1"/>
+      <origin xyz="0 0 0.75" rpy="0 -0 0"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="-3.2288591" upper="3.2288591" effort="100.0" velocity="3.1416"/>
+    </joint>
+
+    <joint name="${prefix}joint_2" type="revolute">
+      <parent link="${prefix}link_1"/>
+      <child link="${prefix}link_2"/>
+      <origin xyz="0.35 0 0" rpy="-1.5707963 -0 0"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="-2.5481807" upper="0" effort="100.0" velocity="3.1416"/>
+    </joint>
+
+    <joint name="${prefix}joint_3" type="revolute">
+      <parent link="${prefix}link_2"/>
+      <child link="${prefix}link_3"/>
+      <origin xyz="1.25 0 0" rpy="0 -0 -1.5707963"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="-2.0769418" upper="2.7052603" effort="100.0" velocity="3.1416"/>
+    </joint>
+
+    <joint name="${prefix}joint_4" type="revolute">
+      <parent link="${prefix}link_3"/>
+      <child link="${prefix}link_4"/>
+      <origin xyz="-0.055 1.1 6.7355574e-17" rpy="-1.5707963 -0 0"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="-6.1086524" upper="6.1086524" effort="100.0" velocity="3.1416"/>
+    </joint>
+
+    <joint name="${prefix}joint_5" type="revolute">
+      <parent link="${prefix}link_4"/>
+      <child link="${prefix}link_5"/>
+      <origin xyz="0 0 0" rpy="1.5707963 -0 0"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="-2.1816616" upper="2.1816616" effort="100.0" velocity="3.1416"/>
+    </joint>
+
+    <joint name="${prefix}joint_6" type="revolute">
+      <parent link="${prefix}link_5"/>
+      <child link="${prefix}link_6"/>
+      <origin xyz="1.1368684e-16 0.23 1.4083438e-17" rpy="1.5707963 1.2246468e-16 3.1415927"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="-6.1086524" upper="6.1086524" effort="100.0" velocity="3.1416"/>
+    </joint>
+
+    <link name="${prefix}flange"/>
+    <joint name="${prefix}link_8-flange" type="fixed">
+      <parent link="${prefix}link_8"/>
+      <child link="${prefix}flange"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+    <link name="${prefix}tool0"/>
+    <joint name="${prefix}flange-tool0" type="fixed">
+      <parent link="${prefix}flange"/>
+      <child link="${prefix}tool0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+
+  </xacro:macro>
+</robot>
