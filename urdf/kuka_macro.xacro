@@ -1,10 +1,9 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://wiki.ros.org/xacro">
-
   <!--
     Base KUKA robot series xacro macro
 
-    NOTE this is NOT a URDF. It cannot dirrectly be loaded by consumers
+    NOTE this is NOT a URDF. It cannot directly be loaded by consumers
     expecting a flattened '.urdf' file. See the top-level '.xacro' for that
     (but note that .xacro must still be processed by the xacro command).
 
@@ -23,282 +22,256 @@
 
     Author: Shahwaz Khan
    -->
-
-  <xacro:include filename="$(find kuka_robot_descriptions)/urdf/inc/kuka_common.xacro" />
-  <xacro:include filename="$(find kuka_robot_descriptions)/urdf/inc/kuka_transmission.xacro" />
-  <xacro:include filename="$(find kuka_robot_descriptions)/urdf/ros2_control.xacro" />
-
-  <xacro:macro name="kuka_robot"
-    params="
-    name
-    tf_prefix
-    parent
-    *origin
-    client_ip
-    client_port
-    use_fake_hardware
-    joint_limits_parameters_file
-    kinematics_parameters_file
-    physical_parameters_file
-    visual_parameters_file
-    force_abs_paths:=false
-    ">
-
-    <xacro:kuka_ros2_control
-      name="${name}"
-      tf_prefix="${tf_prefix}"
-      client_ip="${client_ip}"
-      client_port="${client_port}"
-      use_fake_hardware="${use_fake_hardware}"
-    />
-
+  <xacro:include filename="$(find kuka_robot_descriptions)/urdf/inc/kuka_common.xacro"/>
+  <xacro:include filename="$(find kuka_robot_descriptions)/urdf/inc/kuka_transmission.xacro"/>
+  <xacro:include filename="$(find kuka_robot_descriptions)/urdf/ros2_control.xacro"/>
+  <xacro:macro name="kuka_robot" params="     name     tf_prefix     dof     parent     *origin     client_ip     client_port     use_fake_hardware     joint_limits_parameters_file     kinematics_parameters_file     physical_parameters_file     visual_parameters_file     force_abs_paths:=false     ">
+    <xacro:kuka_ros2_control name="${name}" tf_prefix="${tf_prefix}" client_ip="${client_ip}" client_port="${client_port}" use_fake_hardware="${use_fake_hardware}" dof="${dof}"/>
+    <xacro:kuka_arm_transmission tf_prefix="${tf_prefix}" dof="${dof}"/>
     <!-- Load configuration data from the provided .yaml files -->
-    <xacro:read_model_data
-      joint_limits_parameters_file="${joint_limits_parameters_file}"
-      kinematics_parameters_file="${kinematics_parameters_file}"
-      physical_parameters_file="${physical_parameters_file}"
-      visual_parameters_file="${visual_parameters_file}"
-      force_abs_paths="${force_abs_paths}" />
-
-
+    <xacro:read_model_data joint_limits_parameters_file="${joint_limits_parameters_file}" kinematics_parameters_file="${kinematics_parameters_file}" physical_parameters_file="${physical_parameters_file}" visual_parameters_file="${visual_parameters_file}" force_abs_paths="${force_abs_paths}" dof="${dof}"/>
     <!-- Links -main serial chain -->
     <link name="${tf_prefix}base_link">
       <visual>
-        <origin xyz="0 0 0" rpy="0 0 0" />
+        <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <xacro:get_mesh name="base_link" type="visual" />
+          <xacro:get_mesh name="base_link" type="visual"/>
         </geometry>
-        <xacro:get_material name="base_link" type="visual" />
+        <xacro:get_material name="base_link" type="visual"/>
       </visual>
       <collision>
-        <origin xyz="0 0 0" rpy="0 0 0" />
+        <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <xacro:get_mesh name="base_link" type="collision" />
+          <xacro:get_mesh name="base_link" type="collision"/>
         </geometry>
       </collision>
-      <xacro:inertial_block mass="${base_link_mass}" ixx="${base_ixx}" iyy="${base_iyy}"
-        izz="${base_izz}">
-        <origin xyz="0 0 0" rpy="0 0 0" />
+      <xacro:inertial_block mass="${base_link_mass}" ixx="${base_ixx}" iyy="${base_iyy}" izz="${base_izz}">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
       </xacro:inertial_block>
     </link>
-
     <!-- Link-1 -->
     <link name="${tf_prefix}link_1">
       <visual>
-        <origin xyz="0 0 0" rpy="0 0 0" />
+        <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <xacro:get_mesh name="link_1" type="visual" />
+          <xacro:get_mesh name="link_1" type="visual"/>
         </geometry>
-        <xacro:get_material name="link_1" type="visual" />
+        <xacro:get_material name="link_1" type="visual"/>
       </visual>
       <collision>
         <geometry>
-          <xacro:get_mesh name="link_1" type="collision" />
+          <xacro:get_mesh name="link_1" type="collision"/>
         </geometry>
       </collision>
-      <xacro:inertial_block mass="${link_1_mass}" ixx="${link_1_ixx}" iyy="${link_1_iyy}"
-        izz="${link_1_izz}">
-        <origin xyz="0 0 0" rpy="0 0 0" />
+      <xacro:inertial_block mass="${link_1_mass}" ixx="${link_1_ixx}" iyy="${link_1_iyy}" izz="${link_1_izz}">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
       </xacro:inertial_block>
     </link>
-
     <!-- Link-2 -->
     <link name="${tf_prefix}link_2">
       <visual>
-        <origin xyz="0 0 0" rpy="0 0 0" />
+        <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <xacro:get_mesh name="link_2" type="visual" />
+          <xacro:get_mesh name="link_2" type="visual"/>
         </geometry>
-        <xacro:get_material name="link_2" type="visual" />
+        <xacro:get_material name="link_2" type="visual"/>
       </visual>
       <collision>
         <geometry>
-          <xacro:get_mesh name="link_2" type="collision" />
+          <xacro:get_mesh name="link_2" type="collision"/>
         </geometry>
       </collision>
-      <xacro:inertial_block mass="${link_2_mass}" ixx="${link_2_ixx}" iyy="${link_2_iyy}"
-        izz="${link_2_izz}">
-        <origin xyz="0 0 0" rpy="0 0 0" />
+      <xacro:inertial_block mass="${link_2_mass}" ixx="${link_2_ixx}" iyy="${link_2_iyy}" izz="${link_2_izz}">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
       </xacro:inertial_block>
     </link>
-
     <!-- Link-3 -->
     <link name="${tf_prefix}link_3">
       <visual>
-        <origin xyz="0 0 0" rpy="0 0 0" />
+        <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <xacro:get_mesh name="link_3" type="visual" />
+          <xacro:get_mesh name="link_3" type="visual"/>
         </geometry>
-        <xacro:get_material name="link_3" type="visual" />
+        <xacro:get_material name="link_3" type="visual"/>
       </visual>
       <collision>
         <geometry>
-          <xacro:get_mesh name="link_3" type="collision" />
+          <xacro:get_mesh name="link_3" type="collision"/>
         </geometry>
       </collision>
-      <xacro:inertial_block mass="${link_3_mass}" ixx="${link_3_ixx}" iyy="${link_3_iyy}"
-        izz="${link_3_izz}">
-        <origin xyz="0 0 0" rpy="0 0 0" />
+      <xacro:inertial_block mass="${link_3_mass}" ixx="${link_3_ixx}" iyy="${link_3_iyy}" izz="${link_3_izz}">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
       </xacro:inertial_block>
     </link>
-
     <!-- Link-4 -->
     <link name="${tf_prefix}link_4">
       <visual>
-        <origin xyz="0 0 0" rpy="0 0 0" />
+        <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <xacro:get_mesh name="link_4" type="visual" />
+          <xacro:get_mesh name="link_4" type="visual"/>
         </geometry>
-        <xacro:get_material name="link_4" type="visual" />
+        <xacro:get_material name="link_4" type="visual"/>
       </visual>
       <collision>
         <geometry>
-          <xacro:get_mesh name="link_4" type="collision" />
+          <xacro:get_mesh name="link_4" type="collision"/>
         </geometry>
       </collision>
-      <xacro:inertial_block mass="${link_4_mass}" ixx="${link_4_ixx}" iyy="${link_4_iyy}"
-        izz="${link_4_izz}">
-        <origin xyz="0 0 0" rpy="0 0 0" />
+      <xacro:inertial_block mass="${link_4_mass}" ixx="${link_4_ixx}" iyy="${link_4_iyy}" izz="${link_4_izz}">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
       </xacro:inertial_block>
     </link>
-
     <!-- Link-5 -->
     <link name="${tf_prefix}link_5">
       <visual>
-        <origin xyz="0 0 0" rpy="0 0 0" />
+        <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <xacro:get_mesh name="link_5" type="visual" />
+          <xacro:get_mesh name="link_5" type="visual"/>
         </geometry>
-        <xacro:get_material name="link_5" type="visual" />
+        <xacro:get_material name="link_5" type="visual"/>
       </visual>
       <collision>
         <geometry>
-          <xacro:get_mesh name="link_5" type="collision" />
+          <xacro:get_mesh name="link_5" type="collision"/>
         </geometry>
       </collision>
-      <xacro:inertial_block mass="${link_5_mass}" ixx="${link_5_ixx}" iyy="${link_5_iyy}"
-        izz="${link_5_izz}">
-        <origin xyz="0 0 0" rpy="0 0 0" />
+      <xacro:inertial_block mass="${link_5_mass}" ixx="${link_5_ixx}" iyy="${link_5_iyy}" izz="${link_5_izz}">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
       </xacro:inertial_block>
     </link>
-
     <!-- Link-6 -->
     <link name="${tf_prefix}link_6">
       <visual>
-        <origin xyz="0 0 0" rpy="0 0 0" />
+        <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <xacro:get_mesh name="link_6" type="visual" />
+          <xacro:get_mesh name="link_6" type="visual"/>
         </geometry>
-        <xacro:get_material name="link_6" type="visual" />
+        <xacro:get_material name="link_6" type="visual"/>
       </visual>
       <collision>
         <geometry>
-          <xacro:get_mesh name="link_6" type="collision" />
+          <xacro:get_mesh name="link_6" type="collision"/>
         </geometry>
       </collision>
-      <xacro:inertial_block mass="${link_6_mass}" ixx="${link_6_ixx}" iyy="${link_6_iyy}"
-        izz="${link_6_izz}">
-        <origin xyz="0 0 0" rpy="0 0 0" />
+      <xacro:inertial_block mass="${link_6_mass}" ixx="${link_6_ixx}" iyy="${link_6_iyy}" izz="${link_6_izz}">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
       </xacro:inertial_block>
     </link>
-
+    <!-- Link-7 -->
+    <xacro:if value="${dof == 7}">
+      <link name="${tf_prefix}link_7">
+        <visual>
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+          <geometry>
+            <xacro:get_mesh name="link_7" type="visual"/>
+          </geometry>
+          <xacro:get_material name="link_7" type="visual"/>
+        </visual>
+        <collision>
+          <geometry>
+            <xacro:get_mesh name="link_7" type="collision"/>
+          </geometry>
+        </collision>
+        <xacro:inertial_block mass="${link_7_mass}" ixx="${link_7_ixx}" iyy="${link_7_iyy}" izz="${link_7_izz}">
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_block>
+      </link>
+    </xacro:if>
     <!-- base_joint fixes base_link to the environment -->
     <joint name="${tf_prefix}${parent}-base_link" type="fixed">
-      <parent link="${parent}" />
-      <child link="${tf_prefix}base_link" />
-      <xacro:insert_block name="origin" />
+      <parent link="${parent}"/>
+      <child link="${tf_prefix}base_link"/>
+      <xacro:insert_block name="origin"/>
     </joint>
-
     <!-- joints - main serial chain -->
     <!-- Joint-1 -->
     <joint name="${tf_prefix}joint_1" type="revolute">
-      <parent link="${tf_prefix}base_link" />
-      <child link="${tf_prefix}link_1" />
-      <origin xyz="${link1_x} ${link1_y} ${link1_z}" rpy="${link1_roll} ${link1_pitch} ${link1_yaw}" />
-      <axis xyz="${link1_axis}" />
-      <limit lower="${joint_1_lower_limit}" upper="${joint_1_upper_limit}"
-        effort="${joint_1_effort_limit}"
-        velocity="${joint_1_velocity_limit}" />
+      <parent link="${tf_prefix}base_link"/>
+      <child link="${tf_prefix}link_1"/>
+      <origin xyz="${link1_x} ${link1_y} ${link1_z}" rpy="${link1_roll} ${link1_pitch} ${link1_yaw}"/>
+      <axis xyz="${link1_axis}"/>
+      <limit lower="${joint_1_lower_limit}" upper="${joint_1_upper_limit}" effort="${joint_1_effort_limit}" velocity="${joint_1_velocity_limit}"/>
     </joint>
-
     <!-- Joint-2 -->
     <joint name="${tf_prefix}joint_2" type="revolute">
-      <parent link="${tf_prefix}link_1" />
-      <child link="${tf_prefix}link_2" />
-      <origin xyz="${link2_x} ${link2_y} ${link2_z}" rpy="${link2_roll} ${link2_pitch} ${link2_yaw}" />
-      <axis xyz="${link2_axis}" />
-      <limit lower="${joint_2_lower_limit}" upper="${joint_2_upper_limit}"
-        effort="${joint_2_effort_limit}"
-        velocity="${joint_2_velocity_limit}" />
+      <parent link="${tf_prefix}link_1"/>
+      <child link="${tf_prefix}link_2"/>
+      <origin xyz="${link2_x} ${link2_y} ${link2_z}" rpy="${link2_roll} ${link2_pitch} ${link2_yaw}"/>
+      <axis xyz="${link2_axis}"/>
+      <limit lower="${joint_2_lower_limit}" upper="${joint_2_upper_limit}" effort="${joint_2_effort_limit}" velocity="${joint_2_velocity_limit}"/>
     </joint>
-
     <!-- Joint-3 -->
     <joint name="${tf_prefix}joint_3" type="revolute">
-      <parent link="${tf_prefix}link_2" />
-      <child link="${tf_prefix}link_3" />
-      <origin xyz="${link3_x} ${link3_y} ${link3_z}" rpy="${link3_roll} ${link3_pitch} ${link3_yaw}" />
-      <axis xyz="${link3_axis}" />
-      <limit lower="${joint_3_lower_limit}" upper="${joint_3_upper_limit}"
-        effort="${joint_3_effort_limit}"
-        velocity="${joint_3_velocity_limit}" />
+      <parent link="${tf_prefix}link_2"/>
+      <child link="${tf_prefix}link_3"/>
+      <origin xyz="${link3_x} ${link3_y} ${link3_z}" rpy="${link3_roll} ${link3_pitch} ${link3_yaw}"/>
+      <axis xyz="${link3_axis}"/>
+      <limit lower="${joint_3_lower_limit}" upper="${joint_3_upper_limit}" effort="${joint_3_effort_limit}" velocity="${joint_3_velocity_limit}"/>
     </joint>
-
     <!-- Joint-4 -->
     <joint name="${tf_prefix}joint_4" type="revolute">
-      <parent link="${tf_prefix}link_3" />
-      <child link="${tf_prefix}link_4" />
-      <origin xyz="${link4_x} ${link4_y} ${link4_z}" rpy="${link4_roll} ${link4_pitch} ${link4_yaw}" />
-      <axis xyz="${link4_axis}" />
-      <limit lower="${joint_4_lower_limit}" upper="${joint_4_upper_limit}"
-        effort="${joint_4_effort_limit}"
-        velocity="${joint_4_velocity_limit}" />
+      <parent link="${tf_prefix}link_3"/>
+      <child link="${tf_prefix}link_4"/>
+      <origin xyz="${link4_x} ${link4_y} ${link4_z}" rpy="${link4_roll} ${link4_pitch} ${link4_yaw}"/>
+      <axis xyz="${link4_axis}"/>
+      <limit lower="${joint_4_lower_limit}" upper="${joint_4_upper_limit}" effort="${joint_4_effort_limit}" velocity="${joint_4_velocity_limit}"/>
     </joint>
-
     <!-- Joint-5 -->
     <joint name="${tf_prefix}joint_5" type="revolute">
-      <parent link="${tf_prefix}link_4" />
-      <child link="${tf_prefix}link_5" />
-      <origin xyz="${link5_x} ${link5_y} ${link5_z}" rpy="${link5_roll} ${link5_pitch} ${link5_yaw}" />
-      <axis xyz="${link5_axis}" />
-      <limit lower="${joint_5_lower_limit}" upper="${joint_5_upper_limit}"
-        effort="${joint_5_effort_limit}"
-        velocity="${joint_5_velocity_limit}" />
+      <parent link="${tf_prefix}link_4"/>
+      <child link="${tf_prefix}link_5"/>
+      <origin xyz="${link5_x} ${link5_y} ${link5_z}" rpy="${link5_roll} ${link5_pitch} ${link5_yaw}"/>
+      <axis xyz="${link5_axis}"/>
+      <limit lower="${joint_5_lower_limit}" upper="${joint_5_upper_limit}" effort="${joint_5_effort_limit}" velocity="${joint_5_velocity_limit}"/>
     </joint>
-
     <!-- Joint-6 -->
     <joint name="${tf_prefix}joint_6" type="revolute">
-      <parent link="${tf_prefix}link_5" />
-      <child link="${tf_prefix}link_6" />
-      <origin xyz="${link6_x} ${link6_y} ${link6_z}" rpy="${link6_roll} ${link6_pitch} ${link6_yaw}" />
-      <axis xyz="${link6_axis}" />
-      <limit lower="${joint_6_lower_limit}" upper="${joint_6_upper_limit}"
-        effort="${joint_6_effort_limit}"
-        velocity="${joint_6_velocity_limit}" />
+      <parent link="${tf_prefix}link_5"/>
+      <child link="${tf_prefix}link_6"/>
+      <origin xyz="${link6_x} ${link6_y} ${link6_z}" rpy="${link6_roll} ${link6_pitch} ${link6_yaw}"/>
+      <axis xyz="${link6_axis}"/>
+      <limit lower="${joint_6_lower_limit}" upper="${joint_6_upper_limit}" effort="${joint_6_effort_limit}" velocity="${joint_6_velocity_limit}"/>
     </joint>
-
+    <!-- Joint-7 -->
+    <xacro:if value="${dof == 7}">
+      <joint name="${tf_prefix}joint_7" type="revolute">
+        <parent link="${tf_prefix}link_6"/>
+        <child link="${tf_prefix}link_7"/>
+        <origin xyz="${link7_x} ${link7_y} ${link7_z}" rpy="${link7_roll} ${link7_pitch} ${link7_yaw}"/>
+        <axis xyz="${link7_axis}"/>
+        <limit lower="${joint_7_lower_limit}" upper="${joint_7_upper_limit}" effort="${joint_7_effort_limit}" velocity="${joint_7_velocity_limit}"/>
+      </joint>
+    </xacro:if>
     <!-- ROS base_link to KUKA $ROBROOT coordinate system transform -->
-    <link name="${tf_prefix}base" />
-    <joint name="${tf_prefix}base_link-base" type="fixed">
-      <origin xyz="0 0 0" rpy="0 0 0" />
-      <parent link="${tf_prefix}base_link" />
-      <child link="${tf_prefix}base" />
+    <link name="${tf_prefix}base"/>
+    <joint name="${tf_prefix}base_link-base_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <parent link="${tf_prefix}base_link"/>
+      <child link="${tf_prefix}base"/>
     </joint>
-
     <!-- ROS-Industrial 'flange' frame - attachment point for EEF models -->
-    <link name="${tf_prefix}flange" />
-    <joint name="${tf_prefix}joint_6-flange" type="fixed">
-      <parent link="${tf_prefix}link_6" />
-      <child link="${tf_prefix}flange" />
-      <origin xyz="0 0 ${flange_z}" rpy="0 ${flange_pitch} 0 " />
-    </joint>
-
+    <xacro:if value="${dof == 7}">
+      <link name="${tf_prefix}flange"/>
+      <joint name="${tf_prefix}joint_7-flange" type="fixed">
+        <parent link="${tf_prefix}link_7"/>
+        <child link="${tf_prefix}flange"/>
+        <origin xyz="0 0 ${flange_z}" rpy="0 ${flange_pitch} 0 "/>
+      </joint>
+    </xacro:if>
+    <xacro:if value="${dof == 6}">
+      <link name="${tf_prefix}flange"/>
+      <joint name="${tf_prefix}joint_6-flange" type="fixed">
+        <parent link="${tf_prefix}link_6"/>
+        <child link="${tf_prefix}flange"/>
+        <origin xyz="0 0 ${flange_z}" rpy="0 ${flange_pitch} 0 "/>
+      </joint>
+    </xacro:if>
     <!-- This frame corresponds to the $TOOL coordinate system in KUKA KRC controllers -->
-    <link name="${tf_prefix}tool0" />
+    <link name="${tf_prefix}tool0"/>
     <joint name="${tf_prefix}flange-tool0" type="fixed">
-      <parent link="${tf_prefix}flange" />
-      <child link="${tf_prefix}tool0" />
-      <origin xyz="0 0 0" rpy="0 ${tool0_pitch} 0" />
+      <parent link="${tf_prefix}flange"/>
+      <child link="${tf_prefix}tool0"/>
+      <origin xyz="0 0 0" rpy="0 ${tool0_pitch} 0"/>
     </joint>
-
   </xacro:macro>
 </robot>
