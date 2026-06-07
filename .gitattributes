@@ -1,0 +1,8 @@
+# COLLADA meshes are verbose XML text. Store them gzip-compressed in git
+# (clean filter) and transparently decompress on checkout (smudge filter).
+# ~10x smaller blobs, byte-identical working-tree files, no LFS needed.
+#
+# REQUIRED one-time per clone (git won't auto-run filters from .gitattributes):
+#   ./scripts/setup-git-filters.sh
+# Without it, checkout of *.dae will FAIL loudly (filter is marked required).
+*.dae filter=daegz -text
