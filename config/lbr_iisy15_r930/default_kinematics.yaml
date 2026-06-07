@@ -61,4 +61,3 @@ kinematics:
     roll: 0.0
     pitch: !degrees 90.0
     yaw: 0.0
-
